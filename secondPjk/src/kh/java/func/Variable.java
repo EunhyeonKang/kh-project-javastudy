@@ -112,7 +112,7 @@ public class Variable {
 		String area = "인천";
 		String area1 = "서울";
 		String tel = "01093660469";
-		String tel1 = "0100000000";
+		String tel1 = "01012344321";
 		String email = "test1@naver.com";
 		String email1 = "test2@naver.com";
 		System.out.println("이름\t나이\t성별\t지역\t전화번호\t\t이메일\t");
