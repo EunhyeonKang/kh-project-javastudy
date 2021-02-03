@@ -110,7 +110,7 @@ public class Variable {
 		char gender = '여';
 		char gender1 = '남';
 		String area = "인천";
-		String area1 = "서울";
+		String area1 = "부산";
 		String tel = "01093660469";
 		String tel1 = "01012344321";
 		String email = "test1@naver.com";
