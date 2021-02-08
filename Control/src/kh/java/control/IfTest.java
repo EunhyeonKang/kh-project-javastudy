@@ -162,4 +162,44 @@ public class IfTest {
 			System.out.println("0입니다");
 		}
 	}
+	public void test10() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("======== 대/소문자 변환 프로그램 ========");
+		System.out.print("문자입력 : ");
+		char str = sc.next().charAt(0);
+		System.out.println("======== 결 과 ========");
+	
+		if(str >='a' &&str <='z') {
+			System.out.println("소문자를 입력하였습니다.");
+			System.out.println("대문자로 변환 : "+(char)(str-32));
+		}
+		else if(str>='A'&&str<='Z') {
+			System.out.println("대문자를 입력하였습니다.");
+			System.out.println("소문자로 변환 : "+(char)(str+32));
+		}
+		else {
+			System.out.println("잘못입력하셨습니다. 영문자를 입력해주세요.");
+		}
+	}
+	public void test11() {
+		System.out.print("정수입력 : ");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		System.out.println("======== 결 과 ========");
+		if(num==0) {
+			System.out.println("["+num+"]은(는) 3의 배수도 4의 배수도 아닙니다.");
+		}
+		else if(num%3==0&&num%4==0) {
+			System.out.println("["+num+"]은(는) 3의 배수면서 4의 배수입니다.");
+		}
+		else if(num%3==0){
+			System.out.println("["+num+"]은(는) 3의 배수입니다.");
+		}
+		else if(num%4==0) {
+			System.out.println("["+num+"]은(는) 4의 배수입니다.");
+		}
+		else if(!(num%3==0&&num%4==0)){
+			System.out.println("["+num+"]은(는) 3의 배수도 4의 배수도 아닙니다.");
+		}
+	}
 }
