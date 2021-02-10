@@ -51,7 +51,9 @@ public class Start {
 //		st.star18();
 //		st.star19();
 //		st.star20();
-		st.star21();
+//		st.star21();
+		wt.test3();
+//		wt.loop1();
 	}
 	
 }
