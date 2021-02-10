@@ -119,4 +119,130 @@ public class StarTest {
 			System.out.println();
 		}
 	}
+	///
+	public void star16() {
+		for(int i=0;i<5;i++) {
+			for(int j=4;j>i;j--) {
+				System.out.print(" ");
+			}
+			for(int j=0;j<=i*2;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	public void star17() {
+		for(int i=0;i<5;i++) {
+			for(int j=0;j<i;j++) {
+				System.out.print(" ");
+			}
+			for(int j=5*2-1;j>i*2;j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	public void star18() {
+		for(int i=0;i<9;i++) {
+			if(i<5) {
+				for(int j=4;j>i;j--) {
+					System.out.print(" ");
+				}
+				for(int j=0;j<=i*2;j++) {
+					System.out.print("*");
+				}
+			}
+			if(i>=5) {
+				for(int j=0;j<i-4;j++) {
+					System.out.print(" ");
+				}
+				for(int j=9*2-1;j>i*2;j--) {
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+		}
+	}
+	///
+	public void star19() {
+		for(int i=0;i<9;i++) {
+			if(i<5) {
+				for(int j=5;j>i;j--) {
+					System.out.print("*");
+				}			
+				for(int j=0;j<=i*2;j++) {
+					System.out.print(" ");
+				}
+				for(int j=5;j>i;j--) {
+					System.out.print("*");
+				}
+			}
+			if(i>=5) {
+				for(int j=5;j<=i+1;j++) {
+					System.out.print("*");
+				}
+				for(int j=9*2-1;j>i*2;j--) {
+					System.out.print(" ");
+				}
+				for(int j=5;j<=i+1;j++) {
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+		}
+	}
+	public void star20() {
+		for(int i=1;i<=10;i++) {
+			if(i<=5) {
+				for(int j=1;j<=i;j++) {
+					System.out.print("*");
+				}
+				for(int j=9-i+1;j>=i;j--) {
+					System.out.print(" ");
+				}
+				for(int j=1;j<=i;j++) {
+					System.out.print("*");
+				}
+			}
+			if(i>5) {
+				for(int j=10;j>i;j--) {
+					System.out.print("*");
+				}
+				if(i!=10) {
+					for(int j=5*2-i;j<=i;j++) {
+						System.out.print(" ");
+					}
+				}
+				for(int j=10;j>i;j--) {
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+		}
+	}
+	public void star21() {
+		for(int i=1;i<=10;i++) {
+			if(i<=5) {
+				for(int j=1;j<=i;j++) {
+					System.out.print(" ");
+				}
+				for(int j=9-i+1;j>=i;j--) {
+					System.out.print("*");
+				}
+			
+			}
+			if(i>5) {
+				for(int j=10;j>i;j--) {
+					System.out.print(" ");
+				}
+				if(i!=10) {
+					for(int j=5*2-i;j<=i;j++) {
+						System.out.print("*");
+					}
+				}
+				
+			}
+			System.out.println();
+		}
+	}
 }

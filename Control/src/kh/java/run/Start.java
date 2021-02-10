@@ -33,19 +33,25 @@ public class Start {
 //		wt.test2();
 //		fe.exam1();
 //		fe.exam2();
-		st.star1();
-		st.star2();
-		st.star3();
-		st.star4();
-		st.star5();
-		st.star6();
-		st.star7();
-		st.star8();
-		st.star9();
-		st.star10();
-		st.star11();
-		st.star12();
-		st.star13();
+//		st.star1();
+//		st.star2();
+//		st.star3();
+//		st.star4();
+//		st.star5();
+//		st.star6();
+//		st.star7();
+//		st.star8();
+//		st.star9();
+//		st.star10();
+//		st.star11();
+//		st.star12();
+//		st.star13();
+//		st.star16();
+//		st.star17();
+//		st.star18();
+//		st.star19();
+//		st.star20();
+		st.star21();
 	}
 	
 }
