@@ -100,43 +100,6 @@ public class ArrayTest {
 			System.out.print(arr[i]);
 		}
 	}
-	public void lottoProgram() {
-		int cnt=0;
-		System.out.println("사용자 숫자 6개 입력 : ");
-		Scanner sc = new Scanner(System.in);
-		Random r = new Random();
-		int[] arr = new int[6];
-		int[] carr = new int[6];
-		for(int i=0;i<arr.length;i++) {
-			arr[i] = sc.nextInt();
-			while(true) {
-				if(!(arr[i]>=1&&arr[i]<=45)) {
-					System.out.println("입력범위를 벗어났습니다. 다시 입력해주세요 : ");
-					arr[i] = sc.nextInt();	
-				}
-				else {
-					for(int j=0;j<i;j++) {
-						while(true) {
-							if(arr[i]==arr[j]) {			
-								System.out.println("중복된 값입니다. 다시 입력해주세요 : ");
-								break;							
-							}
-							
-						}
-					}
-					break;
-				}
-			}
-		}	
-//		for(int i=0;i<arr.length;i++) {
-//			carr[i] = r.nextInt(45)+1;
-//			for(int j=0;j<i;j++) {
-//				if(arr[i]==arr[j]) {
-//					System.out.println("중복된 값");
-//				}
-//			}	
-//		}	
-	}
 	public void lottoProgram1() {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
@@ -226,6 +189,136 @@ public class ArrayTest {
 			}
 			
 		}
-	
+		public void reserveProgram() {
+			Scanner sc = new Scanner(System.in);
+			boolean bool = true;
+			int[] rNum = new int[10]; // boolean[] room = new boolean[10];
+			for(int i=0;i<10;i++) {
+				rNum[i]=0;	
+			}
+			while(bool) {
+				System.out.println("=====호텔 관리 프로그램=====");
+				System.out.print("1.입실\t2.퇴실\t3.방보기\t4.종료\n");
+				System.out.print("선택 > ");
+				//1~4입력
+				int num = sc.nextInt();						
+				switch(num) {
+				case 1:
+					//입실
+					System.out.print("몇 번방에 입실하시겠습니까? ");
+					int checkin = sc.nextInt();
+					for(int i=0;i<rNum.length;i++){	
+						if(rNum[i]==0) { //room[i]==flase
+							if(i+1==checkin) {
+								System.out.println(i+1+"번방에 입실하셨습니다.");
+								rNum[i]=1;
+								break;
+							}	
+						}
+						else {
+							System.out.println(i+1+"번방은 현재 손님이 있습니다.");
+						}
+					}
+					break;
+				case 2:
+					//퇴실
+					System.out.print("몇 번방에 퇴실하시겠습니까? ");
+					int checkout = sc.nextInt();
+					for(int i=0;i<rNum.length;i++){	
+						if(rNum[i]==1) {
+							if(i+1==checkout) {
+								System.out.println(i+1+"번방을 퇴실하셨습니다.");
+								rNum[i]=0;
+								break;
+							}	
+						}
+						else {
+							System.out.println(i+1+"번방이 비어있습니다.");
+							break;
+						}
+					}
+					break;
+				case 3:
+					for(int i=0;i<rNum.length;i++) {
+						if(rNum[i]==0) { //!room[i]	  0:false 1:true
+							System.out.println(i+1+"번방이 현재 비어있습니다.");
+						}
+						else if(rNum[i]==1){
+							System.out.println(i+1+"번방에는 현재 손님이 있습니다.");
+							
+						}
+					}
+					//방보기
+					break;
+				case 4:
+					bool=false;
+					return;
+					
+				}
+			}
+		}
+		public void arrrayCopy() {
+			//얕은 복사
+			int[]arr1 = {1,2,3,4,5};
+			int[]arr2=arr1;
+			arr1[1]=10;
+			arr2[2]=30;
+			//깊은 복사1)
+			int[]arr3=arr1.clone();
+			arr1[1] =100;
+			int[]arr4 = new int[5];
+			//깊은 복사2)
+			//일부만 잘라서 복사할때
+			//복사될 원본배열 , 인덱스 시작번호, 새데이터배열, 복사시작번호, 5개복사
+			System.arraycopy(arr1, 0, arr4, 0, arr1.length);
+			//깊은 복사3)
+			int[] arr5 = new int[5];
+			for(int i=0;i<arr1.length;i++) {
+				arr5[i] = arr1[i];
+			}
+			
+			for(int i=0;i<arr1.length;i++) {
+				System.out.print(arr1[i]+" ");
+			}
+			System.out.println();
+			for(int i=0;i<arr2.length;i++) {
+				System.out.print(arr2[i]+" ");
+			}
+			System.out.println();
+			for(int i=0;i<arr3.length;i++) {
+				System.out.print(arr3[i]+" ");
+			}
+			System.out.println();
+			for(int i=0;i<arr4.length;i++) {
+				System.out.print(arr4[i]+" ");
+			}
+		}
+		public void arraytest1() {
+			int [][] arr = new int[2][3];
+			arr[0][0]=1;
+			arr[0][1]=3;
+			arr[0][2]=5;
+			arr[1][0]=7;
+			arr[1][1]=9;
+			arr[1][2]=11;
+			for(int i=0;i<arr.length;i++) { //행
+				for(int j=0;j<arr[i].length;j++) { //열
+					System.out.print(arr[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
+		public void exam11() {
+			int [][] arr = new int[5][5];
+			int cnt=0;
+			for(int i=0;i<arr.length;i++) { //행
+				for(int j=0;j<arr[i].length;j++) { //열
+					cnt++;
+					arr[i][j]=cnt;
+					System.out.print(arr[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
 	}
 

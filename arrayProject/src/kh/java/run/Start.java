@@ -10,8 +10,11 @@ public class Start {
 //		at.exam2();
 //		at.exam3();
 //		at.bobble();
-//		at.lottoProgram();
-		at.lottoProgram1();
+//		at.lottoProgram1();
+//		at.reserveProgram();
+//		at.arrrayCopy();
+//		at.arraytest1();
+		at.exam11();
 	}
 
 }
