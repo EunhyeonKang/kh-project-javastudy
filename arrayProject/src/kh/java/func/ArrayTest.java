@@ -315,10 +315,125 @@ public class ArrayTest {
 				for(int j=0;j<arr[i].length;j++) { //열
 					cnt++;
 					arr[i][j]=cnt;
-					System.out.print(arr[i][j]+" ");
+					System.out.print(arr[i][j]+"\t");
 				}
 				System.out.println();
 			}
+		}
+		public void test10() {
+			int [][] arr = new int[5][5];
+			int cnt=5;
+			for(int i=0;i<arr.length;i++) { //행
+				for(int j=0;j<arr[i].length;j++) { //열
+					arr[i][j]=cnt--;
+					System.out.print(arr[i][j]+"\t");	
+				}
+				cnt+=5*2;
+				System.out.println();
+			}
+			System.out.println();
+		}
+		public void test11() {
+			int [][] arr = new int[5][5];
+			int cnt=1;
+			int cnt2=cnt+1;
+			for(int i=0;i<arr.length;i++) { //행
+				for(int j=0;j<arr[i].length;j++) { //열
+					arr[i][j]=cnt;
+					System.out.print(arr[i][j]+"\t");	
+					cnt+=5;
+				}
+				cnt=cnt2++;
+				System.out.println();
+			}
+			System.out.println();
+		}
+		public void test12() {
+			int [][] arr = new int[5][5];
+			int cnt=5;
+			int cnt1=cnt-1;
+			for(int i=0;i<arr.length;i++) { //행
+				for(int j=0;j<arr[i].length;j++) { //열
+					arr[i][j]=cnt;
+					System.out.print(arr[i][j]+"\t");	
+					cnt+=5;
+				}
+				cnt=cnt1--;	
+				System.out.println();
+			}
+			System.out.println();
+		}
+		public void test13() {
+			int [][] arr = new int[5][5];
+			int cnt=0;
+			for(int i=0;i<arr.length;i++) { //행
+				if(i%2==0) { //행이 짝수면 증가
+					cnt++;
+					for(int j=0;j<arr[i].length;j++) { //열
+						arr[i][j]=cnt++;
+						System.out.print(arr[i][j]+"\t");	
+					}
+				}
+				else { //행이 홀수면 감소
+					cnt--;
+					for(int j=0;j<arr[i].length;j++) { //열
+						arr[i][j]=cnt--;
+						System.out.print(arr[i][j]+"\t");
+						
+					}
+				}
+				cnt+=5;
+				System.out.println();
+			}
+			System.out.println();
+		}
+		public void test14() {
+			Scanner sc = new Scanner(System.in);
+			Random r = new Random();
+			System.out.print("가로행의 개수를 입력하세요(1~10) ==> ");
+			int culumn = sc.nextInt();
+			System.out.print("세로행의 개수를 입력하세요(1~10) ==> ");
+			int row = sc.nextInt();
+			int [][] arr = new int[culumn][row];
+			for(int i=0;i<arr.length;i++) { //행
+				for(int j=0;j<arr[i].length;j++) { //열
+					int alpha = r.nextInt(26)+97;
+					arr[i][j]=alpha;
+					System.out.print((char)arr[i][j]+" ");	
+				
+				}
+			
+				System.out.println();
+			}
+		}
+		public void test15() {
+			Scanner sc = new Scanner(System.in);
+			System.out.print("2차원 배열 크기 입력(정방형) > ");
+			int num = sc.nextInt();
+			int [][] arr = new int[num][num];
+			int cnt=1;
+			int cnt2=1;
+			for(int i=0;i<arr.length;i++) { //행			
+				for(int j=0;j<arr[i].length;j++) { //열			
+					if(i==0||j==4) {
+						arr[i][j]=cnt++;
+						System.out.print(arr[i][j]+"\t");
+					}	
+					else if(i==4){				
+						arr[i][j]=cnt+4;
+						System.out.print(arr[i][j] +"\t");
+						arr[i][j]=cnt--;
+					}
+					else {
+						System.out.print(""+"\t");	
+					}
+				}
+				System.out.println();
+			}
+		}
+		public void test16() {
+		}
+		public void kakao() {
 		}
 	}
 
