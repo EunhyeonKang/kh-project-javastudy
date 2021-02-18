@@ -6,10 +6,15 @@ public class Run {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		MethodTest mt = new MethodTest();
+		StudentMgr sm = new StudentMgr();
 		TV tv = new TV();
 //		mt.exam1();
 //		mt.test11();
+		sm.main();
+
+		/*
 		tv.power();
+		tv.volUp();
 		while(true) {
 			System.out.println("1. 볼륨 업");
 			System.out.println("2. 볼륨 다운");
@@ -42,5 +47,6 @@ public class Run {
 				return;
 			}
 		}
+		*/
 	}
 }

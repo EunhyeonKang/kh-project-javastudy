@@ -10,10 +10,10 @@ public class TV {
 	//전역변수,멤버변수
 	//전역변수는 선언 시 자동으로 초기화
 	//숫자(정수*4,실수*2)>0 , 문자(''), 논리 > false, 참조형 > null
-	int size;		//0
-	boolean power;	//false -> power 전원 켜짐, false : 전원꺼짐
-	int vol;		//0
-	int ch;			//0
+	private int size;		//0
+	private boolean power;	//false -> power 전원 켜짐, false : 전원꺼짐
+	private int vol;		//0
+	private int ch;			//0
 	
 	//기능 : 전원 on/off, 불륨조절, 채널변경	-> 메소드
 	//전원 on/off -> 메소드이름 : power
