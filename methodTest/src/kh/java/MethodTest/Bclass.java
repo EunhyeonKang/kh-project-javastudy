@@ -16,5 +16,7 @@ public class Bclass {
 	public int setNo(int no) {
 		return this.no=no;
 	}
-	
+	public void printMsg() {
+		System.out.println("난 Bclass야~!!!");
+	}
 }

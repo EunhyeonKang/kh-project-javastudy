@@ -11,13 +11,18 @@ public class Run {
 		
 		Aclass a = new Aclass();
 		Bclass b = new Bclass();
-		a.setNum(100);
-		System.out.println(a.getNum());
-		b.setNo(1000);
-		a.setNo(10000);
-		System.out.println(b.getNo());
-		System.out.println(a.getNo());
-		
+//		a.setNum(100);
+//		System.out.println(a.getNum());
+//		b.setNo(1000);
+//		a.setNo(10000);
+//		System.out.println(b.getNo());
+//		System.out.println(a.getNo());
+//		System.out.println("-----------------");
+//		Aclass aa = new Aclass(2222,3333);
+//		System.out.println(aa.getNum());
+//		System.out.println(aa.getNo());
+		b.printMsg();
+		a.printMsg();
 		
 		
 //		mt.exam1();
