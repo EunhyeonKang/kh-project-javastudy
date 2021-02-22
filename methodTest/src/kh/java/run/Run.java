@@ -8,10 +8,21 @@ public class Run {
 		MethodTest mt = new MethodTest();
 		StudentMgr sm = new StudentMgr();
 		TV tv = new TV();
+		
+		Aclass a = new Aclass();
+		Bclass b = new Bclass();
+		a.setNum(100);
+		System.out.println(a.getNum());
+		b.setNo(1000);
+		a.setNo(10000);
+		System.out.println(b.getNo());
+		System.out.println(a.getNo());
+		
+		
+		
 //		mt.exam1();
 //		mt.test11();
-		sm.main();
-
+//		sm.main();
 		/*
 		tv.power();
 		tv.volUp();
