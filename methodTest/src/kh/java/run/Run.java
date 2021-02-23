@@ -1,16 +1,33 @@
 package kh.java.run;
-
 import kh.java.MethodTest.*;
 import java.util.Scanner;
 public class Run {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		MethodTest mt = new MethodTest();
-		StudentMgr sm = new StudentMgr();
-		TV tv = new TV();
+//		Scanner sc = new Scanner(System.in);
+//		MethodTest mt = new MethodTest();
+//		StudentMgr sm = new StudentMgr();
+//		TV tv = new TV();
 		
-		Aclass a = new Aclass();
-		Bclass b = new Bclass();
+//		Animal a = new Animal();
+//		Cat c = new Cat();
+//		Tiger t = new Tiger();
+//		a.crying();
+//		c.crying();
+//		t.crying();
+//		c.grooming();
+//		t.hunting();
+//		Animal a1 = new Cat();	//Animal 타입의 Cat객체, 업캐스팅
+//		a1.crying();
+//		((Cat)a1).grooming();	//다운캐스팅
+//		Animal a2 = new Tiger();
+//		a2.crying();
+//		((Tiger)a2).hunting();
+//		Object o = new Animal();
+//		Object o1 = new Cat();
+//		Object o2 = new Tiger();
+
+//		Aclass a = new Aclass();
+//		Bclass b = new Bclass();
 //		a.setNum(100);
 //		System.out.println(a.getNum());
 //		b.setNo(1000);
@@ -21,10 +38,8 @@ public class Run {
 //		Aclass aa = new Aclass(2222,3333);
 //		System.out.println(aa.getNum());
 //		System.out.println(aa.getNo());
-		b.printMsg();
-		a.printMsg();
-		
-		
+//		b.printMsg();
+//		a.printMsg();
 //		mt.exam1();
 //		mt.test11();
 //		sm.main();
