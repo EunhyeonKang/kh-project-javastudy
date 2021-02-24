@@ -1,5 +1,7 @@
 package kr.or.iei.student.view;
 
+
+
 import java.util.Scanner;
 
 import kr.or.iei.student.model.vo.Student;
@@ -42,21 +44,26 @@ public class StudentView {
 			System.out.println(s[i].getName()+"\t"+s[i].getAge()+"\t"+s[i].getAddr());
 		}
 	}
-	public String printOneStudent() {
-		System.out.println("----- 학생 1명 조회 -----");
-		System.out.print("조회할 회원 이름 입력 : ");
+	public String inputName(String msg) {
+		System.out.print(msg+"할 회원 이름 입력 : ");
 		String name = sc.next();
 		return name;
 	}
-	public void printOneStudent(Student[] s,int index, int searchIndex) {
-	
-		for(int i=0;i<index;i++) {
-			if(i==searchIndex) {
-				System.out.println(s[searchIndex].getName()+"\t"+s[searchIndex].getAge()+"\t"+s[searchIndex].getAddr());
-		
-			}
-		}
-		
-
+	public void printOneStudent(Student s) {
+		System.out.println(s.getName()+"\t"+s.getAge()+"\t"+s.getAddr());
+	}
+	public Student modifyStudent() {
+		System.out.println("수정할 학생 이름 입력 : ");
+		String mName = sc.next();
+		System.out.println("수정할 학생 나이 입력 : ");
+		int mAge = sc.nextInt();
+		System.out.println("수정할 학생 주소 입력 : ");
+		sc.nextLine();
+		String mAddr = sc.nextLine();
+		Student s = new Student(mName,mAge,mAddr);
+		return s;
+	}
+	public void printMsg(String msg) {
+		System.out.println(msg);
 	}
 }
