@@ -10,6 +10,8 @@ import kr.or.iei.member.model.vo.Vip;
 
 
 
+
+
 public class MemberView {
 	Scanner sc;
 	Member m;
