@@ -41,7 +41,10 @@ public class StudentView {
 		System.out.println("----- 학생 정보 전체 조회 ------");
 		System.out.println("이름\t나이\t주소");
 		for(int i=0;i<index;i++) {
-			System.out.println(s[i].getName()+"\t"+s[i].getAge()+"\t"+s[i].getAddr());
+			Student student = s[i];
+			System.out.println(student);
+			//System.out.println(student.toString());
+			//student.getName()+"\t"+student.getAge()+"\t"+student.getAddr()
 		}
 	}
 	public String inputName(String msg) {

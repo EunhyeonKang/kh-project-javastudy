@@ -32,5 +32,9 @@ public class Student {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	
+	@Override
+	public String toString() {
+		String str = getName()+"\t"+getAge()+"\t"+getAddr();
+		return str;
+	}
 }
