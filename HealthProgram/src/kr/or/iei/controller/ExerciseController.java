@@ -61,14 +61,18 @@ public class ExerciseController {
 						deleteProgram();
 						break;
 					case 0:
-						mView.printMsg("뒤로가기");
+						backProgram();
 						break;
 					}
-					break;
+					if(bool==false) {
+						bool=true;
+						break;	
+					}
 				}
 				break;
 			//사용자
 			case 2:
+				bool=true;
 				mView.printMsg("헬스클럽에 오신걸 환영합니다~~");
 				while(true) {
 					int uSel = uView.showMenu();
@@ -85,9 +89,13 @@ public class ExerciseController {
 		                    	uView.privProgramSearch(Ex1,index1);
 		                        break;
 		                     case 0:
+		                    	backProgram();
 		                        break;
-		                     }
-		                   	break;
+		                    }
+		                     break;
+//		                 	if(bool==false) {
+//								break;	
+//							}
 		                  }
 		                  break;
 					//수강 등록 신청
@@ -136,18 +144,21 @@ public class ExerciseController {
 									bool1=false;
 									break;
 								case 2:
-									bool1=false;
+									backProgram();
 									break;
 								}
-								if(bool1==false)break;
+								break;
 							}
 						}
 						break;
 					case 4:
-						bool2=false;
+						backProgram();
 						break;
 					}
-					if(bool2==false)break;
+					if(bool==false) {
+						bool=true;
+						break;	
+					}
 				}
 				
 				break;
@@ -215,5 +226,9 @@ public class ExerciseController {
 			}
 		}
 		return -1;
+	}
+	public void backProgram() {
+		mView.printMsg("뒤로가기");
+		bool=false;
 	}
 }
