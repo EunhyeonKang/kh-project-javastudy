@@ -33,12 +33,15 @@ public class ApiClass {
 		System.out.println(today.get(Calendar.MINUTE)); // 분
 		System.out.println(today.get(Calendar.SECOND)); // 초
 		System.out.println(today.get(Calendar.DAY_OF_WEEK)); // 요일(1.일요일~7:토요일)
+		
 		Calendar day1 = Calendar.getInstance();
 		System.out.println(day1.get(Calendar.DATE));
 		System.out.println(day1.get(Calendar.DAY_OF_WEEK));
+		
 		day1.set(Calendar.MONTH, 3);
 		day1.set(Calendar.DATE, 27);
 		System.out.println(day1.get(Calendar.DAY_OF_WEEK));
+		
 		// 1일 -> 24*60*60 => 86400초 -> 86400000
 		Calendar day2 = Calendar.getInstance();
 		long time1 = day2.getTimeInMillis();
@@ -62,8 +65,10 @@ public class ApiClass {
 
 	public void exam2() {
 		Scanner sc = new Scanner(System.in);
+		
 		Calendar cal = Calendar.getInstance();
 		long today = cal.getTimeInMillis(); //1960년부터~오늘날짜까지 ms초 환산
+		
 		System.out.println("=========== D-Day 계산기 ==============");
 		System.out.print("D-Day [년도] 입력 : ");
 		int year = sc.nextInt();
@@ -71,11 +76,11 @@ public class ApiClass {
 		int month = sc.nextInt();
 		System.out.print("D-Day [일] 입력 : ");
 		int day = sc.nextInt();
-		
 		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.YEAR, month-1); 
-		cal.set(Calendar.YEAR, day);
+		cal.set(Calendar.MONTH, month-1); 
+		cal.set(Calendar.DATE, day);
 		long dday = cal.getTimeInMillis(); //1960년부터~dday까지 ms초 환산
+		
 		long time = dday - today;		//두 날짜 사이의 차이값(ms)
 		long d = time/(24*60*60*1000); 	//ms -> day 변환(86400000)
 		if(d == 0) {
