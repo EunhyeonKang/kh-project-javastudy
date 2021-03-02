@@ -66,7 +66,11 @@ public class ApiClass {
 	public void exam2() {
 		Scanner sc = new Scanner(System.in);
 		
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance(); 	//오늘 날짜용
+		Calendar cal1 = Calendar.getInstance();	//D=Day용
+		//System.out.println("car : "+cal.getTimeInMillis());
+		//System.out.println("carl : "+cal1.getTimeInMillis());
+		
 		long today = cal.getTimeInMillis(); //1960년부터~오늘날짜까지 ms초 환산
 		
 		System.out.println("=========== D-Day 계산기 ==============");
@@ -76,13 +80,13 @@ public class ApiClass {
 		int month = sc.nextInt();
 		System.out.print("D-Day [일] 입력 : ");
 		int day = sc.nextInt();
-		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.MONTH, month-1); 
-		cal.set(Calendar.DATE, day);
-		long dday = cal.getTimeInMillis(); //1960년부터~dday까지 ms초 환산
+		cal1.set(Calendar.YEAR, year);
+		cal1.set(Calendar.MONTH, month-1); 
+		cal1.set(Calendar.DATE, day);
+		long dday = cal1.getTimeInMillis(); //1960년부터~dday까지 ms초 환산
 		
-		long time = dday - today;		//두 날짜 사이의 차이값(ms)
-		long d = time/(24*60*60*1000); 	//ms -> day 변환(86400000)
+		long time = dday/1000 - today/1000;		//두 날짜 사이의 차이값(ms)
+		long d = time/(24*60*60); 	//ms -> day 변환(86400000)
 		if(d == 0) {
 			System.out.println("D-Day입니다.");
 		}else if(d>0) {
@@ -90,6 +94,44 @@ public class ApiClass {
 		}else{
 			System.out.println(Math.abs(d)+"일 남았습니다.");
 		}
+	}
+	
+	
+	
+	public void wrapper() {
+		//정수형변수 선언해서 10대입
+		int num=10;
+		System.out.println(num);
+		//wrapperclass로 정수형 10대입(class타입이라 클래스생성 -> 메소드사용)
+		Integer num1 = new Integer(10);
+		System.out.println(num1.intValue());
+		//auto-boxing (간단하게 하기 위해)
+		Integer num2 =10; //toString();
+		System.out.println(num2+1);
+		System.out.println(num2.toString()+1);
 		
+		Character ch ='a';	//new Character('a')
+		System.out.println(ch);//ch.characterValue();
+		
+		//String -> 기본자료형 변환(char)->charAt()
+		String str = "1";
+		System.out.println(str+1);	//11
+		int no = Integer.parseInt(str);
+		double no1 = Double.parseDouble(str);
+		System.out.println(no+10);
+		System.out.println(no1+10);
+		
+		//기본자료형 -> String 변환(문자 제외)
+		double d1 = 11.1;
+		String str1 = Double.valueOf(d1).toString();
+		String str11 = String.valueOf(d1);
+		System.out.println(str1);
+		int no2 = 100;
+		String str2 = Integer.valueOf(no2).toString();
+		String str22 = String.valueOf(no2);
+		System.out.println(str2);
+		Character ch1 = 'a';
+		String str3 = ch1.toString();
+		System.out.println(str3);
 	}
 }

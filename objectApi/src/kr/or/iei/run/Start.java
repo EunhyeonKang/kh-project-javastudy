@@ -25,7 +25,8 @@ public class Start {
 		//ac.math();
 		//ac.calendar();
 		//ac.date();
-		ac.exam2();
+		//ac.exam2();
+		ac.wrapper();
 	}
 
 }
