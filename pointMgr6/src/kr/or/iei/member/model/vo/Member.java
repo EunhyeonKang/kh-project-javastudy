@@ -33,5 +33,9 @@ public abstract class Member {
 		this.point = point;
 	}
 	public abstract double getBonus();
-	
+	@Override
+	public String toString() {
+		String str = getGrade()+"\t"+getName()+"\t"+getPoint()+"\t"+getBonus();
+		return str;
+	}
 }
