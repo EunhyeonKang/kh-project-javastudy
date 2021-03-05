@@ -57,4 +57,20 @@ public class ListTest {
 		list.clear();
 		System.out.println(list);
 	}
+	public void listTest3() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(11);
+		list.add(21);
+		list.add(100);
+		list.add(1);
+		list.add(18293);
+		//foreach문 -> collection, list용 for문
+		for(Integer num  : list) {
+			System.out.println(num);
+		}
+//		for(int i=0;i<list.size();i++) {
+//			Integer num = list.get(i);
+//			System.out.println(list.get(i));
+//		}
+	}
 }
