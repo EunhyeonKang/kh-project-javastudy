@@ -1,5 +1,6 @@
 package kr.or.iei.run;
 
+import kr.or.iei.func.LRU;
 import kr.or.iei.func.ListTest;
 import kr.or.iei.func.MapTest;
 import kr.or.iei.func.SetTest;
@@ -9,12 +10,14 @@ public class Start {
 		ListTest st = new ListTest();
 		SetTest st1 = new SetTest();
 		MapTest mt = new MapTest();
+		LRU lru = new LRU();
 //		st.listTest1();
 //		st.listTest2();
 //		st.listTest3();
 //		st1.setTest1();
 //		st1.check();
 //		mt.mapTest1();
-		mt.mapTest2();
+//		mt.mapTest2();
+		lru.main();
 	}
 }
