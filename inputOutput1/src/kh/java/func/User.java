@@ -5,8 +5,12 @@ import java.io.Serializable;
 public class User implements Serializable{
 	private static final long serialVersionUID = 11111111;
 	private String name;
-	private int age;
+	private transient int age;
 	private String addr;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
