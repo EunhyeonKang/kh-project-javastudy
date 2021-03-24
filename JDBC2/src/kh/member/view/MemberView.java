@@ -14,7 +14,7 @@ public class MemberView {
 	}
 
 	public int showMenu() {
-		System.out.println("------- 회원 관리 프로그램v1 -------");
+		System.out.println("------- 회원 관리 프로그램v2 -------");
 		System.out.println("1. 회원 전체 조회");		//SELECT
 		System.out.println("2. 아이디로 회원 조회");	//SELECT
 		System.out.println("3. 이름으로 회원 조회");	//SELECT
@@ -95,19 +95,18 @@ public class MemberView {
 	public Member getMembers(String memberId) {
 		Member m = new Member();
 		m.setMemberId(memberId);
-		
-		System.out.print("비밀번호 입력 입력 : ");
+		System.out.print("변경할 비밀번호 입력 입력 : ");
 		String memberPw = sc.next();
 		m.setMemberPw(memberPw);
 		
-		System.out.print("이름 입력 : ");
+		System.out.print("변경할 이름 입력 : ");
 		String memberName = sc.next();
 		m.setMemberName(memberName);
 		sc.nextLine();
-		System.out.print("주소 입력 : ");
+		System.out.print("변경할 주소 입력 : ");
 		String memberAddr = sc.nextLine();
 		m.setAddr(memberAddr);
-		System.out.print("전화번호 입력(000-0000-0000) : ");
+		System.out.print("변경할 전화번호 입력(000-0000-0000) : ");
 		String memberPhone = sc.next();
 		m.setPhone(memberPhone);
 		return m;

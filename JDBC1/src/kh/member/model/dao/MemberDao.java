@@ -154,4 +154,131 @@ public class MemberDao {
 		
 		return list;
 	}
+
+	public int insertMember(Member m) {
+		Connection conn = null;
+		Statement stmt = null;
+		//insert 결과는 적용된 행의 갯수가 리턴되므로 정수형으로 처리
+		int result = 0;
+		String query = "insert into member values(mem_seq.nextval,"
+						+"'"+m.getMemberId()+"',"
+						+"'"+m.getMemberPw()+"',"
+						+"'"+m.getMemberName()+"',"
+						+"'"+m.getAddr()+"',"
+						+m.getAge()+","
+						+"'"+m.getPhone()+"',"
+						+"sysdate)";
+		//System.out.println(query);	
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "jdbc","1234");
+			stmt = conn.createStatement();
+			result = stmt.executeUpdate(query);
+			if(result > 0) {
+				//성공한 경우(적용된 행의 갯수가 0개보다 크면)
+				conn.commit();
+			}else {
+				//실패한 경우(작용된 행의 갯수가 0이면)
+				conn.rollback();
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return result;
+	}
+
+	public int deleteMember(String memberId) {
+		Connection conn = null;
+		Statement stmt = null;
+		int result = 0;
+		String query = "delete from member where member_id = '"+memberId+"'";
+		//System.out.println(query); 
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe","jdbc","1234");
+			stmt = conn.createStatement();
+			result = stmt.executeUpdate(query);
+			if(result > 0) {
+				//성공한 경우(적용된 행의 갯수가 0개보다 크면)
+				conn.commit();
+			}else {
+				//실패한 경우(작용된 행의 갯수가 0이면)
+				conn.rollback();
+			}		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return result;
+	}
+
+
+	public int updateMember(String memberId, Member m) {
+		Connection conn = null;
+		Statement stmt = null;
+		int result = 0; 
+		String query = "update member set " 
+						+"member_pw = '" + m.getMemberPw() +"'," 
+						+"member_name = '"+ m.getMemberName()+"',"
+						+"addr = '" + m.getAddr()+"',"
+						+"phone = '"+ m.getPhone()+"'"
+						+ "where member_id = '"+memberId+"'";
+	
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe","jdbc","1234");
+			stmt = conn.createStatement();
+			result = stmt.executeUpdate(query);
+			
+			if(result > 0) {
+				//성공한 경우(적용된 행의 갯수가 0개보다 크면)
+				conn.commit();
+			}else {
+				//실패한 경우(작용된 행의 갯수가 0이면)
+				conn.rollback();
+			}	
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
 }
