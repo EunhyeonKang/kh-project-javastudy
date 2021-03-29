@@ -1,0 +1,19 @@
+커뮤니티 프로그램 작성
+- DB 
+1. 테이블 정의서를 바탕으로 데이터베이스 생성
+2. 두 테이블의 PK는 시퀀스를 이용하여 자동으로 채번하여 사용
+3. DB계정은 jdbcex 계정 사용
+
+- ExamView 전역변수
+1. Scanner sc;		//사용자에게 키보드 값을 입력받기 위한 스캐너 인스턴스
+- ExamController 전역변수
+1. ExamView view;		//view를 호출하기 위한 인스턴스
+2. Member loginMember;			//로그인 회원 정보를 저장할 인스턴스
+3. ExamDao dao;				//ExamDao를 호출하기위한 인스턴스
+3. 추가 전역변수 없음
+
+- ExamDao 전역변수 없음
+
+- JDBCTemplate 기존 JDBCTemplate 수정하여 사용
+
+- VO(Member, Board) 클래스는 DB 및 프로그램 실행 흐름에 맞춰서 생성할 것
