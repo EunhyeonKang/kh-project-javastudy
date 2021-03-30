@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼태그</title>
+</head>
+
+<body>
+    <form action="01_글자관련태그.html" method="post">
+        <fieldset>
+            <legend>로그인</legend>
+            아이디 : <input type="text" name="id" placeholder="아이디입력"><br>
+            비밀번호 : <input type="text" name="pw"><br>
+            <input type="submit" value="로그인">
+        </fieldset>
+    </form>
+    <form action="/06_하이터링크태그.html" method="GET" autocomplete="off">
+        <fieldset>
+            <legend>input테스트</legend>
+            <label>
+                text : <input type="text" name="a"><br><!-- 한줄짜리 텍스트 입력창(입력시 그대로 보임)-->
+            </label>
+            <label for="pw">password </label> : <input type="password" name="b" id="pw"><br>
+            <!--type=text와 동일하나 화면에 마스킹처리되어 보임-->
+            hidden : <input type="hidden" name="c"><br>
+            <!--사용자에게 보이지 않는 input 사용자에게 보이지 않고 관리자가 필요한 값을 전송하는 목적으로 사용-->
+            button : <input type="button" name="d" value="버튼" onclick="alert('hi')"><br>
+            <!--별도의 기능은 존재하지 않으나 스크립트를 통한 기능 연결시 사용-->
+            <!--여러개의 선택 값을 다중으로 입력할 때 사용-->
+            checkbox :
+            <input type="checkbox" name="e" id="java">
+            <label for="java">java</label>
+            <label><input type="checkbox" name="e">oracle</label><br>
+            <!--여러개의 선택 값 중 1개만 입력할 때 사용-->
+            radio :
+            <input type="radio" name="f">남
+            <input type="radio" name="f">여
+            <br>
+            <!--파일 입력 양식 출력-->
+            file :
+            <input type="file" name="g">
+            <input type="file" name="h" multiple>
+            <!--multiple은 한번에 파일을 여러개 선택 가능하게 하는 옵션-->
+            <br>
+            <!--submit 속해있는 form태기 전송(내부에 있는 input의 값을 모두 전송 form의 action값에 있는 프로그램(페이지)로 전송)-->
+            <input type="submit" value="제출">
+            <!--reset이 속해있는 form태그 내부의 input태그값을 초기화하는 기능-->
+            <input type="reset" value="취소">
+        </fieldset>
+    </form>
+    <form action="06_하이터링크태그.html" method="post">
+        <fieldset>
+            <legend>input type테스트(HTML5양식)</legend>
+            <!--색상 입력 양식 출력-->
+            color : <input type="color" name="a"><br>
+            <!--날짜 입력 양식 출력-->
+            date : <input type="date" name="b" min="2021-03-01" max="2021-04-30"><br>
+            datetime : <input type="datetime" name="c"><br>
+            <!--날짜랑시간-->
+            datetime-local : <input type="datetime-local" name="d"><br>
+            month :<input type="month" name="e"><br>
+            week : <input type="week" name="f"><br>
+            <!--시간입력-->
+            time : <input type="time" name="g" value="13:00"><br>
+            <!--숫자 입력-->
+            number: <input type="number" name="h" min="10" max="20" step="2" value="10"><br>
+            range : <input type="range" name="1" min="10" max="20" step="2" value="14"><br>
+            <!--검색어-->
+            search : <input type="search" name="j"><br>
+            <!--url-->
+            url : <input type="url" name="k">
+            <!--email-->
+            email : <input type="email" name="1"><br>
+            <input type="submit" value="제출">
+
+        </fieldset>
+    </form>
+    <br>
+    <form action="06_하이터링크태그.html" method="get">
+        <!--select-->
+        <select name="gender">
+            <option value="남">남자</option>
+            <option value="여" selected>여자</option>
+        </select>
+        <br>
+        <select name="car">
+            <optgroup label="현대">
+                <option value="g70">G70</option>
+                <option value="g80">G80</option>
+            </optgroup>
+            <optgroup label="기아">
+                <option value="K9">K9</option>
+                <option value="K7">K7</option>
+            </optgroup>
+        </select>
+        <br>
+        <!--
+            ckeditor
+            naver smarteditor
+            서머노트
+        -->
+        <textarea name="content" row="10" cols="100"></textarea>
+        <br>
+        <button type="button">버튼테스트</button>
+        <input type="submit" value="제출">
+    </form>
+
+</body>
+
+</html>
