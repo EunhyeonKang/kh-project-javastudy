@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="01_글자관련태그.html" method="get">
+        고객명 : <input type="text" name="username"><br><br>
+        전화번호 : <input type="tel" name="tel"><br><br>
+        E-mail : <input type="email" name="email"><br><br>
+        <fieldset style="width:600px">
+            <legend>피자 사이즈</legend>
+            <input type="radio" name="size" value="small">Small<br><br>
+            <input type="radio" name="size" value="medium">Medium<br><br>
+            <input type="radio" name="size" value="large">Large<br><br>
+        </fieldset>
+
+        <fieldset style="width:600px">
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="to" value="a">베이컨<br><br>
+            <input type="checkbox" name="to" value="b">치즈<br><br>
+            <input type="checkbox" name="to" value="c">양파<br><br>
+            <input type="checkbox" name="to" value="d">버섯<br><br>
+        </fieldset>
+        <br>
+        희망 배송 시간 : <input type="time" name="time"><br><br>
+        배송시 요청사항 : <textarea name="content" row="20" cols="15"></textarea><br><br>
+        <input type="submit" value="주문하기">
+    </form>
+</body>
+
+</html>

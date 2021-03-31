@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test1>p:first-child {
+            background-color: red;
+        }
+
+        #test1>p:last-child {
+            background-color: orange;
+        }
+
+        #test1>p:nth-child(2n) {
+            background-color: yellow;
+        }
+
+        #test1>p:nth-child(4) {
+            color: red;
+        }
+
+        #test1>p:nth-last-child(4) {
+            color: darkred;
+            ;
+        }
+
+        #test2>p:first-of-type {
+            color: goldenrod
+        }
+
+        #test2>p:last-of-type {
+            color: darkcyan
+        }
+
+        #test2>p:nth-of-type(2n) {
+            background-color: orangered
+        }
+
+        #test2>p:nth-of-type(4) {
+            color: blue
+        }
+
+        #test2>p:nth-last-of-type(4) {
+            color: gray
+        }
+
+        #test3>p:not(:nth-of-type(2n)) {
+            background-color: seagreen;
+        }
+
+        #test4>p:first-letter {
+            color: firebrick;
+        }
+
+        #test4>p:first-line {
+            background-color: darkgoldenrod;
+        }
+
+        #test4>p::selection {
+            background-color: cornflowerblue;
+            color: darkorchid;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>일반구조선택자</h2>
+    <p>특정한 위치에 있는 태그 선택(위치로 구분)</p>
+    <div id="test1">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <h2>형태구조선택자</h2>
+    <p>특정한 위치에 있는 태그선택(태그별 구분)</p>
+    <div id="test2">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <h2>부정 선택자</h2>
+    <p>선택자를 반대로 적용</p>
+    <div id="test3">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <h2>문자선택자</h2>
+    <p>태그 내부에서 특정문자를 선택하는 선택자</p>
+    <div id="test4">
+        <p>
+            1.동해물과 백두산이 마르고 닳도록
+            하느님이 보우하사 우리나라만세.
+
+            2.남산 위에 저 소나무, 철갑을 두른 듯
+            바람서리 불변함은 우리 기상일세.
+
+            3.가을 하늘 공활한데 높고 구름 없이
+            밝은 달은 우리 가슴 일편단심일세.
+
+            4.이 기상과 이 맘으로 충성을 다하여
+            괴로우나 즐거우나 나라 사랑하세
+        </p>
+    </div>
+</body>
+
+</html>

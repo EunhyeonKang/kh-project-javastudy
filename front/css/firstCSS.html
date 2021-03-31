@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="cssfiles/first.css" ; rel="stylesheet" type="text/css">
+    <style>
+        /*전체 선택자*/
+        /* * {
+            color: blue;
+        } */
+        /* 태그선택자 */
+        p {
+            color: red
+        }
+
+        /* 아이디 선택자 */
+        #id4 {
+            background-color: crimson;
+        }
+
+        #id2 {
+            color: blue;
+        }
+
+        /* 클래스 선택자 */
+        .class1 {
+            color: darkgoldenrod
+        }
+
+        .class2 {
+            background-color: darkgreen;
+        }
+
+        /* 우선순위 태그>클래스>id>내부스타일>!important*/
+        h3 {
+            color: darkgray;
+        }
+
+        .h3 {
+            background-color: yellow;
+            color: pink;
+        }
+
+        #h3 {
+            color: darkmagenta
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS선택자</h1>
+    <p>선택자란 특정한 HTML태그를 선택할 떄 사용하는 기능, 태그를 선택해서 원하는 스타일과<br>
+        기능을 정의할 수 있음</p>
+    <hr>
+    <h2>모든 선택자 (*)</h2>
+    <p>HTML태그 내부의 모든 태그를 선택할 수 있음.</p>
+    <hr>
+    <h2>태그 선택자</h2>
+    <p>HTML문서 내부의 같은 태그를 모두 선택할 때 사용</p>
+    <hr>
+    <h2>아이디 선택자 (#)</h2>
+    <p>HTML문서 내에 해당하는 아이디 속성의 값을 가진 태그만 선택</p>
+    <p>아이디는 고유하게 지정하는 것을 원칙으로 함</p>
+    <ol>
+        <li id="id1">아이디 선택자 테스트1</li>
+        <li id="id2">아이디 선택자 테스트2</li>
+        <li id="id3">아이디 선택자 테스트3</li>
+        <li id="id4">아이디 선택자 테스트4</li>
+        <li id="id5">아이디 선택자 테스트5</li>
+    </ol>
+    <hr>
+    <h2>클래스 선택자 (.)</h2>
+    <p>HTML 문서 내에 해당하는 클래스 속성의 값을 가진 태그만 선택</p>
+    <p>아이디와 다르게 여러개 중복해서 사용 가능</p>
+    <ul>
+        <li class="class1">클래스 선택자 테스트1</li>
+        <li class="class2">클래스 선택자 테스트2</li>
+        <li class="class1">클래스 선택자 테스트3</li>
+        <li class="class2">클래스 선택자 테스트4</li>
+        <li class="class1">클래스 선택자 테스트5</li>
+    </ul>
+    <h3 class="class1 class2">클래스 선택자 사용</h3>
+    <h4 class="t-2 bg-3">클래스 선택자 사용법</h4>
+    <h4 class="t-1 bg-2">클래스 선택자 사용법</h4>
+    <h3 id="h3" class="h3">우선순위 테스트1</h3>
+</body>
+
+</html>

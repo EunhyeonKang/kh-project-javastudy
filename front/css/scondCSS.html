@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 기본속성선택자 */
+        /* div[name=name2] {
+            color: red;
+        }
+
+        div[class^=div] {
+            background-color: cornflowerblue;
+        } */
+
+        /* 자손선택자 */
+        .div1>h4 {
+            background-color: darkgreen;
+        }
+
+        /* 후손선택자 */
+        .div1 li {
+            background-color: salmon;
+        }
+
+        .div1>ul {
+            background-color: tan;
+        }
+
+        /* 동위선택자 */
+        #test1+div {
+            color: red;
+        }
+
+        #test1~div {
+            background-color: dodgerblue;
+        }
+
+        #active-test,
+        #hover-test {
+            width: 300px;
+            height: 300px;
+            background-color: orangered;
+        }
+
+        #active-test:active {
+            background-color: yellow;
+        }
+
+        #hover-test:hover {
+            background-color: violet;
+        }
+
+        .chkBox:checked {
+            width: 20px;
+            height: 20px;
+        }
+
+        input[name=id]:focus {
+            background-color: tomato;
+        }
+
+        input[name=pw]:disabled {
+            background-color: deeppink;
+        }
+
+        option:disabled {
+            background-color: khaki;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>기본 속성 선택자</h2>
+    <p>기본선택자 뒤에 []를 사용해서 속성과 속성값을 사용</p>
+    <p>선택자[속성=속성값]</p>
+    <div name="name1" class="div-class">div1</div>
+    <div name="name2" class="div-class">div2</div>
+    <div name="name3" class="div-class">div3</div>
+    <div name="name4" class="class-div">div4</div>
+    <hr>
+    <h2>후손선택자/자손선택자</h2>
+    <p>자손 : 바로 아래 요소, 후손 : 하위요소 전부</p>
+    <div class="div1">
+        <h4>자손1</h4>
+        <h4>자손2</h4>
+        <ul id=testul>
+            <li>리스트1</li>
+            <li>리스트2</li>
+        </ul>
+    </div>
+
+    <!--ul>li*4-->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <hr>
+    <h2>동위선택자</h2>
+    <p>동위관계(같은레벨)에서 뒤에 위치한 태그를 선택할 때 사용</p>
+    <div id="test1">테스트1</div>
+    <div>테스트1</div>
+    <div>테스트1</div>
+    <div>테스트1</div>
+    <div>테스트1</div>
+    <h2>반응선택자</h2>
+    <p>사용자 움직임에 따라 동작하는 선택자</p>
+    <div id="active-test">active</div>
+    <div id="hover-test">hover</div>
+    <h2>상태선택자</h2>
+    <p>입력양식의 상태에 따라 선택되는 선택자</p>
+    <fieldset>
+        <legend>좋아하는 과일을 선택하세요</legend>
+        <label><input type="checkbox" class="chkBox">사과</label>
+        <label><input type="checkbox" class="chkBox">복숭아</label>
+        <label><input type="checkbox" class="chkBox">키위</label>
+    </fieldset>
+    <lable>아이디 : <input type="text" name="id"></lable><br>
+    <lable>비밀번호 : <input type="text" name="pw" disabled></lable>
+    <h3>선거가능나이</h3>
+    <select>
+        <option value="10" disabled>10대</option>
+        <option value="20">20대</option>
+        <option value="30">30대</option>
+        <option value="40">40대</option>
+        <option value="50">50대</option>
+        <option value="60">60대</option>
+    </select>
+</body>
+
+</html>
