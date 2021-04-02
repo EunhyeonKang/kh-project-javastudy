@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textStyle</title>
+    <style>
+        .colorname{
+            color: blue;
+        }
+        .value{
+            color: #0000FF;
+        }
+        .rgb{
+            color: rgb(0,0,255);
+        }
+        .rgba{
+            color: rgba(0,0,255,1);
+        }
+        .hyperlink{
+            text-decoration: none;
+        }
+        .textunder{
+            text-decoration: underline;
+        }
+        .textmiddle{
+            text-decoration: line-through;
+        }
+        .textover{
+            text-decoration: overline;
+        }
+        .transform{
+            text-transform: none;
+        }
+        .capitalize{
+            text-transform: capitalize;
+        }
+        .uppercase{
+            text-transform: uppercase;
+        }
+        .lowercase{
+            text-transform: lowercase;
+        }
+        .html1{
+            color : red;
+            font-size : 80px;
+            text-shadow: 5px 5px orange;
+        } 
+        .html2{
+            color : black;
+            font-size : 80px;
+            text-shadow: 0px 0px 4px #ccc, 0px -5px 4px #ff3,2px -10px 6px #fd3, -2px -15px 11px #180, 2px -19px 18px #f20
+        }
+    </style>
+</head>
+<body>
+    <h1>텍스트 스타일</h1>
+    <hr>
+    <h3>color 속성: 텍스트의 색상을 지정할 수 있다.</h3>
+    <pre>선택자 { color : 색상명영문이름 | 16진수 숫자 | rgb값 | rgba값 }의 형식으로 사용된다.</pre>
+    <p>색상값 참조 사이트 : <a href="https://www.webdesignrankings.com/resources/lolcolors/">사이트로 이동</a></p>
+    <ul>
+        <li class="colorname">색상명으로 지정</li>
+        <li class="value">16진수 값으로 지정</li>
+        <li class="rgb">rgb로 지정</li>
+        <li class="rgba">rgba로 지정</li>
+    </ul>
+    <hr>
+    <h3>text-decoration 속성 : 텍스트에 줄을 긋거나 줄을 없앨 때 사용한다.</h3>
+    <pre>선택자 {text-decoration : none | underline | overline | line=through; }의 형식으로 표현한다.</pre>
+    <ul>
+        <li class="hyperlink rgb">하이퍼링크 밑줄 없애기</li>
+        <li class="textunder">텍스트영역 아래 줄 긋기</li>
+        <li class="textmiddle">텍스트영역 중간에 줄 긋기</li><br>
+        <li class="textover">텍스트영역 위에 줄긋기</li>
+    </ul>
+    <hr>
+    <h3>text=transform 속성 : 영문 텍스트의 대소문자 변환시 사용한다.</h3>
+    <pre>선택자 { text-transform : none | capitalize | uppercase | overcase; }의 형식으로 표현한다.</pre>
+    <ul>
+        <li class="transform">none</li>
+        <li class="capitalize">Capitalize : 영문자의 첫 글자만 대문자로</li>
+        <li class="uppercase">UPPERCASE : 모든 영문자를 대문자로</li>
+        <li class="lowercase">lowercase : 모든 영문자를 소문자로</li>
+    </ul>
+    <hr>
+    <h3>text-shadow 속성 : 텍스트에 그림자 효과를 줄 때 사용한다.</h3>
+    <pre>선택자 { text-shadow : none | 가로거리 세로거리 번짐정도 색상; }의 형식으로 표현한다.</pre>
+    <span class="html1">HTML5</span>
+    <span class="html2">HTML5</span>
+    <pre>첫번째 값 : 5px 5px orange</pre>
+    <pre>두번째 값 : 0px 0px 4px #ccc, 0px -5px 4px #ff3,2 px -10px 6px #fd3, -2px -15px 11px #180, 2px -19px 18px #f20</pre>
+</body>
+</html>

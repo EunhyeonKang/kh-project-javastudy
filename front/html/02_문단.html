@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dir1{
+            direction: ltr;
+        }
+        .dir2{
+            direction: rtl;
+        }
+        .tal1{
+            text-align: left;
+        }
+        .tal2{
+            text-align: right;
+        }
+        .tal3{
+            text-align: center;
+        }
+        .tal4{
+            text-align: justify;
+        }
+        .ti1{
+            text-indent: 10px;
+        }
+        .ti2{
+            text-indent: 30px;
+        }
+        .lh1{
+            line-height: 50px;
+        }
+        #dl{
+            width : 200px;
+            height : 50px;
+            border : 1px solid black;
+            text-align: center;
+            line-height : 50px;
+        }
+        .to1{
+            border : 1px solid black; /*외부 영역 선*/
+            width : 150px;
+            overflow : hidden;
+            text-overflow: clip;
+            white-space: nowrap;
+        }
+        .to2{
+            border : 1px solid black; /*외부 영역 선*/
+            width : 150px;
+            overflow : hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>문단 및 목록 스타일</h1>
+    <h3>direction 속성 : 글자 쓰기 방향을 지정하는 속성</h3>
+    <pre>선택자 {dirction : ltr | rtl ;}</pre>
+    <p class="dir1">안녕하세요(ltr)</p>
+    <p class="dir2">안녕하세요(rtl)</p>
+    <hr>
+    <h3>text-align : 문자의 정렬 위치를 조정하는 속성</h3>
+    <pre>선택자 {text-align : left | right | center | justify; }</pre>
+    <p class="tal1">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <p class="tal2">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+        
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <p class="tal3">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+        
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <p class="tal4">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+        
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <hr>
+    <h3>text-indent : 문장 들여쓰기를 위해 사용하는 속성</h3>
+    <pre>선택자 {text-indent : 숫자(단위);}</pre>
+    <p class="ti1">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+        
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <p class="ti2">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+        
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <h3>line-height : 문자끼리 줄간격 조정할때 사용</h3>
+    <pre>선택자 { line-height : 숫자(단위); }</pre>
+    <p class="lh1">
+        1.동해 물과 백두산이 마르고 닳도록
+        하느님이 보우하사 우리나라 만세
+        무궁화 삼천리 화려강산
+        대한 사람 대한으로 길이 보전하세
+
+        2.남산 위에 저 소나무 철갑을 두른 듯
+        바람 서리 불변함은 우리 기상일세
+
+        3.가을 하늘 공활한데 높고 구름 없이
+        밝은 달은 우리 가슴 일편단심일세
+        
+        4.이 기상과 이 맘으로 충성을 다하여
+        괴로우나 즐거우나 나라 사랑하세</p>
+    <div id="dl">
+        안녕
+    </div>
+    <hr>
+    <h3>text-overflow : 영역을 벗어나는 텍스트 처리를 설정</h3>
+    <pre>선택자 { text-overflow : clip | ellipsis ; }</pre>
+    <p class="to1">안녕하세요 테스트를 위한 글입니다.</p>
+    <p class="to2">안녕하세요 테스트를 위한 글입니다.</p>
+</body>
+</html>

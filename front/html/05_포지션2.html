@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer>div {
+            border: 1px solid black;
+        }
+
+        .outer {
+            position: relative;
+        }
+
+        .first {
+            width: 300px;
+            height: 300px;
+            background-color: dodgerblue;
+            position: absolute;
+        }
+
+        .second {
+            width: 200px;
+            height: 200px;
+            background-color: goldenrod;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        .third {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            ;
+        }
+
+        .fixed {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* position: fixed; */
+        }
+
+        .z-test1 {
+            width: 150px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            z-index: 1000;
+        }
+
+        .z-test2 {
+            width: 150px;
+            height: 100px;
+            background-color: teal;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 100;
+        }
+
+        .z-test3 {
+            width: 150px;
+            height: 100px;
+            background-color: tomato;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .float-test {
+            border: 1px solid black;
+            width: 100px;
+            height: 50px;
+            float: right;
+        }
+
+        .test {
+            clear: both;
+        }
+
+        .over {
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            margin: 50px;
+
+        }
+
+        .over-test1 {
+            overflow: visible;
+        }
+
+        .over-test2 {
+            overflow: auto;
+        }
+
+        .over-test3 {
+            overflow: scroll;
+        }
+
+        .over-test4 {
+            overflow: hidden;
+        }
+
+        .overfloat {
+            background-color: thistle;
+            overflow: hidden;
+        }
+
+        .overfloat>div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            float: left
+        }
+    </style>
+</head>
+
+<body>
+    <h1>배치 관련 스타일</h1>
+    <h3>절대위치/상대위치</h3>
+    <div class="outer">
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br>
+    <h3>고정위치</h3>
+    <div class="fixed"></div>
+    <h3>z-Index</h3>
+    <div class="outer">
+        <div class="z-test1"></div>
+        <div class="z-test2"></div>
+        <div class="z-test3"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>float</h3>
+    <p>페이지 내의 요소의 위치를 왼쪽이나 오른쪽으로 저장하는 속성</p>
+    <div class="float">
+        <div class="float-test">1111</div>
+        <div class="float-test">2222</div>
+        <div class="float-test">3333</div>
+        <div class="float-test">4444</div>
+    </div>
+    <div class="test">이건 테스트 div입니다.</div>
+    <hr>
+    <div class="over over-test1">안녕하세요 저는 강은현입니다. 만나서 반가워요.</div>
+    <div class="over over-test2">안녕하세요</div>
+    <div class="over over-test3">안녕하세요</div>
+    <div class="over over-test4">안녕하세요 저는 강은현입니다. 만나서 반가워요.</div>
+    <hr>
+    <div class="overfloat">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

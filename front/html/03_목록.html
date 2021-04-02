@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ul1{
+            list-style-type: circle;
+        }
+        .ul2{
+            list-style-type: square;
+        }
+        .ul3{
+            list-style-type: none;
+        }
+        .ul4{
+            list-style-image: url("img/kakao.jpg");
+        }
+        .inout>li{
+            background-color: cornflowerblue;
+        }
+        .ul5{
+            list-style-position: inside;
+        }
+        .ul6{
+            list-style-position: outside;
+        }
+    </style>
+</head>
+<body>
+    <h1>목록 스타일 속성</h1>
+    <h3>list-style-type : 목록 기호의 스타일 지정하는 속성</h3>
+    <pre>선택지 { list-style-type : disc | circle | square | none ; }</pre>
+    <ul class="ul1">
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
+    <ul class="ul2">
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
+    <ul class="ul3">
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
+    <h3>list-style-image : 기호대신 이미지를 삽입할 때 사용</h3>
+    <pre>선택지{list-style-image : url(이미지경로);} 이미지 크기는 10x10 px가 가장 적절</pre>
+    <ul class="ul4">
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
+    <hr>
+    <h3>list-style-position : 리스트 블릿이나 숫자를 안쪽으로 들여쓰는 속성</h3>
+    <pre>선택자{list-style-position : insede | outside;}(defalut : outside)</pre>
+    <ul class="inout ul5">
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
+    <ul class="inout ul6">
+        <li>Test1</li>
+        <li>Test2</li>
+        <li>Test3</li>
+    </ul>
+    <hr>
+    <h3>list-style : 목록스타일을 한번에 지정하는 속성</h3>
+    <pre>선택자{list-style : type position image;}</pre>
+    
+</body>
+</html>

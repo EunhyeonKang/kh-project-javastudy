@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d1{
+            background-color: lightcoral;
+            height: 100px;
+            overflow: hidden;
+        }
+        .d1>div{
+            background-color: red;
+            float: left;
+            width: 25%;
+            height: 100 px;
+        }
+        .d2{
+            background-color: darkslateblue;
+        }
+        .d2-1{
+            background-color: deeppink;
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+        .d2-2{
+            background-color: firebrick;
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+        }
+        .d2-3{
+            background-color: gold;
+            display: inline;
+        }
+        #div{
+            width: 100px;
+            height: 50px;
+            background-color: greenyellow;
+            text-align: center;
+            line-height: 50px;
+        }
+        #detail{
+            display: none;
+            list-style-type: none;
+            padding: 0;
+            width: 100px;
+        }
+        #detail>li{
+            text-align: center;
+        }
+        #div:hover{
+            color : indianred;
+            background-color: white;
+            font-weight: bold;
+        }
+        #div:hover+#detail{
+            display: block;  
+        }
+        #input{
+            width: 500px;
+            height: 100px;
+        }
+        .border{
+            width: 50px;
+            height: 50px;
+            border-width: 3px;
+        }
+        .test2{
+            border-style: hidden;
+            box-shadow: 5px 5px 5px 2px grey;
+        }
+        .test3{
+            border-style: dotted;
+        }
+        .test4{
+            border-style:dashed;
+            border-top-color: hotpink;
+            border-left-color: indigo;
+            border-right-color: lightseagreen;
+            border-bottom-color: lightskyblue;
+        }
+        .test5{
+            border-style : double;
+            border-color : blue;
+            border-right-color: red;
+        }
+        .test6{
+            border-style : inset ;
+            border-top-left-radius : 50px;
+        }
+        .test7{
+            border-style : outset;
+            border-bottom-right-radius : 50px
+        }
+        .circle{
+            border : 3px solid rebeccapurple;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>레이아웃 스타일</h1>
+    <h3>width/height : 내용이 차지하고 있는 영역의 크기를</h3>
+    <div class="d1">
+        <div>내용1</div>
+        <div>내용2</div>
+        <div>내용3</div>
+        <div>내용4</div>
+    </div>
+    <h3>display : 화명 배치 방법 변경 속성</h3>
+    <pre>선택자  {display : none | block | inline | inline-block}()} </pre>
+    <div class="d2">
+        <div class="d2-1">내용1</div>
+        <div class="d2-2">내용2</div>
+        <div class="d2-3">내용3</div>
+    </div>
+    <div id="div">화면구현</div>
+    <ul id="detail">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaSctrip</li>
+        <li>jQuery</li>
+    </ul>
+    <h1>Test</h1>
+    <input type="text" id="input"><stan>search</stan>
+    <hr>
+    <h3>테두리 스타일 코드</h3>
+    <h4>border-style : none;</h4>
+    <div class ="border test1"></div>
+    <h4>border-style : hidden & box-shadow : 5px 5px 3px 2px gray</h4>
+    <div class="border test2"></div>
+    <h4>bordr-style : dotted</h4>
+    <div class="border test3"></div>
+    <h4>bordr-style : dashed</h4>
+    <div class="border test4"></div>
+    <h4>border-style : double</h4>
+    <div class="border test5"></div>
+    <h4>border-style : inset & border-top-left-radius : 50px</h4>
+    <div class="border test6"></div>
+    <h4>border-style : outset & border-bottom-right-radius : 50px</h4>
+    <div class="border test7"></div>
+    <h4>border이용해서 원 만들기</h4>
+    <div class="circle"></div>
+</body>
+</html>

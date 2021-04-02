@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 스타일</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        .ff1{
+            font-family: "궁서체";
+        }
+        .ff2{
+            font-family: "고딕체";
+        }
+        .ff3{
+            font-family: "없는 글꼴","궁서체","고딕체";
+        }
+        .ff4{
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        .size1{
+            font-size: 30px;
+        }
+        .size2{
+            font-size: 150%;
+        }
+        .weight1{
+            font-weight: nomal;
+        }
+        .weight2{
+            font-weight: lighter;
+        }
+        .weight3{
+            font-weight: bold;
+        }
+        .weight4{
+            font-weight: bolder;
+        }.fv{
+            font-variant: small-caps;
+        }
+        .fs1{
+            font-style: italic;
+        }
+        .fs2{
+            font-style: oblique;
+        }
+        .font1{
+            font:20px/20px "궁서체"
+        }
+        .font2{
+            font : italic bold 25px/25px "고딕체";
+        }
+        #p1{
+            color : greenyellow;
+            font-size : 40px;
+            text-shadow: 5px 5px cadetblue;
+        }
+        #p2{
+            color : blue;
+            font-size: 40px;
+            text-shadow: 0px 5px 5px #ff0000;
+        }
+        #p3{
+            color:blue;
+            font-size: 40px;
+            text-shadow: -5px -5px red;
+        }
+        #p4{
+            color : black;
+            font-size: 40px;
+            text-shadow: 10px 10px 10px #5d5d5d, 15px 15px 10px #d9418c, 25px 25px 10px #4374d9,30px 30px 10px #47c83e
+        }
+    </style>
+</head>
+<body>
+    <h1>글꼴관련 스타일</h1>
+    <hr>
+    <h3>front-family : 텍스트의 글꼴을 지정할때 사용</h3>
+    <pre>선택자{front-family : 글꼴이름}</pre>
+    <p class="ff1">글꼴 변경 테스트1(궁서체)<p>
+    <p class="ff2">글꼴 변경 테스트2(고딕체)<p>
+    <p class="ff3">글꼴 변경 테스트3(없는글꼴)<p>
+    <h4>** 웹폰트 사용법</h4>
+    <p>웹 폰트 제공 사이트 : <a href="http://fonts.google.com" target="_blank">구글 웹폰트 사이트</a></p>
+    <p class="ff4">글꼴 변경 테스트4(웹폰트)</p>
+    <hr>
+    <h3>font-size : 텍스트의 크기를 변경할 때 사용</h3>
+    <pre>선택자{font-size: 크기;}의 형식으로 사용</pre>
+    <ul>
+        <li class="size1">크기 테스트 1(고정크기)</li>
+        <li class="size2">크기 테스트 2(가변크기)</li>
+    </ul>
+    <hr>
+    <h3>font-weight : 텍스트 두께를 표현할 때 사용</h3>
+    <pre>선택자{font-weight : normal | bold | bolder | lighter | 100~900} (기본값 : nomal,400)</pre>
+    <ul>
+        <li class="weight1">두께 테스트1(기본)</li>
+        <li class="weight2">두께 테스트2(가늘게)</li>
+        <li class="weight3">두께 테스트3(굵게)</li>
+        <li class="weight4">두께 테스트4(더굵게)</li>
+    </ul>
+    <hr>
+    <h3>font-variant : 작은 대문자로 변경 떄 사용</h3>
+    <pre>선택자{font-variant : 속성값}</pre>
+    <p>I LOVE YOU</p>
+    <p class="fv">i love you</p>
+    <hr>
+    <h3>font-style 속성 : 텍스트의 기울임을 지정할 때 사용</h3>
+    <pre>선택자 {font-style : normal | italic | oblique}</pre>
+    <ul>
+        <li class="fs1">italic 기울임</li>
+        <li class="fs2">oblique 기울임</li>
+    </ul>
+    <h3>font 속성 : 글꼴관련 스타일을 한번에 지정할때 사용</h3>
+    <pre>선택자{font : font-style font-variant font-weight font-size/line-height font-family;}(font-size, font-family 두가지는 필수 나머지는 안적어도 기본값적용)</pre>
+    <ul>
+        <li class="font1">글꼴 관련 스타일 테스트1</li>
+        <li class="font2">글꼴 관련 스타일 테스트2</li>
+    </ul>
+    <p id="p1">Example Test</p>
+    <p id="p2">Example Test</p>
+    <p id="p3">Example Test</p>
+    <p id="p4">Example Test</p>
+</body>
+</html>

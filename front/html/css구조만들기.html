@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* border: 1px solid black; */
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h3 {
+
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrap {
+            margin: 0 auto;
+            width: 1281px;
+
+        }
+
+        .header {
+            height: 100px;
+        }
+
+        .footer {
+            height: 150px;
+        }
+
+        .content {
+            overflow: hidden;
+            margin: 5px;
+        }
+
+        .content>div {
+            float: left;
+        }
+
+        .left {
+            height: 500px;
+            width: 15%;
+        }
+
+        .main {
+            height: 650px;
+            width: 60%;
+        }
+
+        .right {
+            width: 25%;
+        }
+
+        .hleft {
+            width: 20%;
+            float: left;
+        }
+
+        .hmain {
+            width: 60%;
+            float: left;
+        }
+
+        .hright {
+            width: 20%;
+            float: left;
+        }
+
+        .navigator {
+            width: 100%;
+            background-color: #4cbb17;
+            color: white;
+            height: 40px;
+        }
+
+        .loginform {
+            margin: 0px auto;
+            width: 300px;
+            height: 100px;
+        }
+
+        .idform,
+        .pwform {
+            width: 70%;
+            float: left;
+            height: 35px;
+            border: 1px solid grey;
+            color: gray;
+            padding: 3px;
+            text-align: left;
+        }
+
+        .login {
+            width: 30%;
+            float: right;
+            height: 70px;
+        }
+
+        .signup-search {
+            width: 100%;
+            float: left;
+            text-align: center;
+            height: 30px;
+        }
+
+        #login {
+            margin: 6px 0px 0px 15px;
+            float: left;
+            width: 60px;
+            height: 55px;
+        }
+
+        .content1,
+        .content3 {
+            float: left;
+            width: 50%;
+            height: 250px;
+            margin-bottom: 50px;
+        }
+
+        .content2,
+        .content4 {
+            float: right;
+            width: 50%;
+            height: 250px;
+            margin-bottom: 50px;
+        }
+
+        .navigator1,
+        .navigator2,
+        .navigator3,
+        .navigator4 {
+            display: inline-block;
+            width: 20%;
+            height: 40px;
+            padding: 10px 0px 0px 5px;
+
+        }
+
+        .right>img {
+            width: 100%;
+            height: auto;
+        }
+
+        .talk {
+            float: left;
+            width: 317px;
+            height: 150px;
+        }
+
+        .mytalk,
+        .name,
+        .msg {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .name {
+            width: 20%;
+            float: left;
+            text-align: center;
+        }
+
+        .msg {
+            width: 80%;
+            float: left;
+            text-align: center;
+        }
+
+        .name1 {
+            width: 20%;
+            float: left;
+            text-align: left;
+        }
+
+        .msg1 {
+            width: 80%;
+            float: left;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        문제2: 3단 Layout 만들어보기
+    </h3>
+    <div class="wrap">
+        <div class="header"></div>
+        <div class="content">
+            <div class="left"></div>
+            <div class="main"></div>
+            <div class="right"></div>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>
+        문제3 : Header Layer 구성해보기
+    </h3>
+    <div class="wrap">
+        <div class="header">
+            <div class="hleft"></div>
+            <div class="hmain"></div>
+            <div class="hright"></div>
+        </div>
+        <div class="content">
+            <div class="left"></div>
+            <div class="main"></div>
+            <div class="right"></div>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>
+        문제4 : Navigator영역 추가해보기
+    </h3>
+    <div class="wrap">
+        <div class="header">
+            <div class="hleft"></div>
+            <div class="hmain"></div>
+            <div class="hright"></div>
+        </div>
+        <div class="navigator"></div>
+        <div class="content">
+            <div class="left"></div>
+            <div class="main"></div>
+            <div class="right"></div>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>
+        문제5 : login폼 만들어보기
+    </h3>
+    <div class="loginform">
+        <div class="idform">ID를 입력하세요.</div>
+        <div class="login"><input type="button" value="로그인" id="login"></div>
+        <div class="pwform">PW를 입력하세요.</div>
+        <div class="signup-search"><a href="">회원가입</a><a href="">ID/PW 찾기</a></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>
+        문제6 : login폼 적용해보기
+    </h3>
+    <div class="wrap">
+        <div class="header">
+            <div class="hleft">LOGO</div>
+            <div class="hmain">TITLE</div>
+            <div class="hright">SIDE</div>
+        </div>
+        <div class="navigator">NAVIGATOR</div>
+        <div class="content">
+            <div class="left">BANNER</div>
+            <div class="main">CONTENTS</div>
+            <div class="right">
+                <div class="loginform">
+                    <div class="idform">ID를 입력하세요.</div>
+                    <div class="login"><input type="button" value="로그인" id="login"></div>
+                    <div class="pwform">PW를 입력하세요.</div>
+                    <div class="signup-search"><a href="">회원가입</a><a href="">ID/PW 찾기</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">FOOTER</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <h3>
+        문제7 : 꾸며보기
+    </h3>
+    <div class="wrap">
+        <div class="header">
+            <div class="hleft"><img src="img/logo.jpg"></div>
+            <div class="hmain"><img src="img/mainlogo.jpg"></div>
+            <div class="hright"></div>
+        </div>
+        <div class="navigator">
+            <span class="navigator1">Home</span>
+            <span class="navigator2">Profile</span>
+            <span class="navigator3">Board</span>
+            <span class="navigator4">Contact</span>
+
+        </div>
+        <div class="content">
+            <div class="left"><img src="img/left_img.jpg"></div>
+            <div class="main">
+                <div class="content1">
+                    <img src="img/main_img1.jpg">
+                    <div class="content1-1">나무를 심는 사람들</div>
+                </div>
+
+                <div class="content2">
+                    <img src="img/main_img2.jpg">
+                    <div class="content2-1">아이들에게 녹색미래를..</div>
+                </div>
+
+                <div class="content3">
+                    <img src="img/main_img3.jpg">
+                    <div class="content3-1">설악산을 살리는 길</div>
+                </div>
+
+                <div class="content4"><img src="img/main_img4.jpg">
+                    <div class="content4-1">사라지는 북극곰들</div>
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="loginform">
+                    <div class="idform">ID를 입력하세요.</div>
+                    <div class="login"><input type="button" value="로그인" id="login"></div>
+                    <div class="pwform">PW를 입력하세요.</div>
+                    <div class="signup-search"><a href="">회원가입</a> <a href="">ID/PW 찾기</a></div>
+                </div>
+                <img src="img/right_img.jpg">
+            </div>
+            <div class="talk">
+                <div class="mytalk">나도한마디</div>
+                <span class="name">이름</span>
+                <span class="msg">메세지</span>
+                <span class="name1">길동이</span>
+                <span class="msg1">자연을 살리자!</span>
+                <span class="name1">영희</span>
+                <span class="msg1">곰이 불쌍해요ㅜㅜ</span>
+                <span class="name1">민수</span>
+                <span class="msg1">ㄴ토끼도요</span>
+                <span class="name1">철수</span>
+                <span class="msg1">토끼 귀엽다.</span>
+
+            </div>
+        </div>
+        <div class="footer">ⓒExample from JAVA Web Developer Junior</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

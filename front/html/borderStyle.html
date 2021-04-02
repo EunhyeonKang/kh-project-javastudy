@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border-style: dashed;
+        }
+
+        #bs1 {
+            border-color: blue;
+            border-top-left-radius: 50px;
+            border-left-style: solid;
+            border-top-style: solid;
+        }
+
+        #bs3 {
+            border-color: seagreen;
+            border-top-right-radius: 50px;
+            border-right-style: solid;
+            border-top-style: solid;
+        }
+
+        #bs5 {
+            border-color: pink;
+        }
+
+        #bs7 {
+            border-color: yellow;
+            border-left-style: solid;
+            border-bottom-style: solid;
+            border-bottom-left-radius: 50px;
+        }
+
+        #bs9 {
+            border-color: red;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-bottom-right-radius: 50px;
+        }
+
+        .total {
+            width: 350px;
+            height: 350px;
+        }
+
+        .dbs1 {
+            border-color: blue;
+            display: inline-block;
+            border-style: dashed;
+            border-left-style: solid;
+            border-top-style: solid;
+            border-top-left-radius: 50px;
+            margin: -2px;
+            width: 100px;
+            height: 100px;
+            border-width: 3px;
+        }
+
+        .dbs2 {
+            display: inline-block;
+            border-style: dashed;
+            width: 100px;
+            height: 100px;
+            margin: -2px;
+            border-width: 3px;
+        }
+
+        .dbs3 {
+            border-color: green;
+            display: inline-block;
+            border-style: dashed;
+            border-top-style: solid;
+            border-right-style: solid;
+            border-top-right-radius: 50px;
+            width: 100px;
+            height: 100px;
+            margin: -2px;
+            border-width: 3px;
+        }
+
+        .dbs4 {
+            display: inline-block;
+            border-style: dashed;
+            width: 100px;
+            height: 100px;
+            margin: 0px -2px;
+            border-width: 3px;
+        }
+
+        .dbs5 {
+            border-color: pink;
+            display: inline-block;
+            border-style: dashed;
+            width: 100px;
+            height: 100px;
+            margin: 0px -2px;
+            border-width: 3px;
+        }
+
+        .dbs6 {
+            display: inline-block;
+            border-style: dashed;
+            width: 100px;
+            height: 100px;
+            margin: 0px -2px;
+            border-width: 3px;
+        }
+
+        .dbs7 {
+            display: inline-block;
+            border-style: dashed;
+            border-color: yellow;
+            border-left-style: solid;
+            border-bottom-style: solid;
+            border-bottom-left-radius: 50px;
+            width: 100px;
+            height: 100px;
+            margin: -2px;
+            border-width: 3px;
+        }
+
+        .dbs8 {
+
+            display: inline-block;
+            border-style: dashed;
+            width: 100px;
+            height: 100px;
+            margin: -2px;
+            border-width: 3px;
+        }
+
+        .dbs9 {
+            display: inline-block;
+            border-style: dashed;
+            border-color: red;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-bottom-right-radius: 50px;
+            width: 100px;
+            height: 100px;
+            margin: -2px;
+            border-width: 3px;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            border: 5px solid blue;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        #p1 {
+            background-color: cadetblue;
+            width: 500px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #div1 {
+            background-color: black;
+            text-align: center;
+        }
+
+        #div2 {
+            width: 500px;
+        }
+
+        .div2 {
+            width: 80%;
+            height: 100px;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>table 버전</h3>
+    <table width="300px" height="300px">
+        <tr>
+            <td id="bs1"></td>
+            <td></td>
+            <td id="bs3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="bs5"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="bs7"></td>
+            <td></td>
+            <td id="bs9"></td>
+        </tr>
+    </table>
+    <hr>
+    <h3>div 버전</h3>
+    <div class="total">
+        <div class="dbs1"></div>
+        <div class="dbs2"></div>
+        <div class="dbs3"></div>
+        <div class="dbs4"></div>
+        <div class="dbs5"></div>
+        <div class="dbs6"></div>
+        <div class="dbs7"></div>
+        <div class="dbs8"></div>
+        <div class="dbs9"></div>
+    </div>
+    <div class="div1">안녕하세요1</div>
+    <div class="div1">안녕하세요2</div>
+    <hr>
+    <p id="p1">텍스트 메시지</p>
+    <hr>
+    <div id="div1">
+        <input type="text">
+        <img src="img/kakao.jpg">
+    </div>
+    <div id="div2">
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+    </div>
+</body>
+
+</html>
