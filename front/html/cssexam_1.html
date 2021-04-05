@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .polaroid {
+            margin: 50px;
+            width: 300px;
+            border: 1px solid #bfbfbf;
+            padding: 20px;
+            box-shadow: 2px 2px 3px rgba(135, 139, 133, 0.4);
+            transform: rotate(9deg);
+        }
+
+        .polaroid>img {
+            width: 300px;
+            height: 180px;
+        }
+
+        #gallery {
+            border: 10px solid #1d0c16;
+            width: 500px;
+            background-color: #272229;
+            box-shadow: #272229 10px 10px 20px;
+        }
+
+        #gallery>ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #gallery>ul>li {
+            width: 240px;
+            height: 180px;
+            margin: 5px;
+            float: left;
+            overflow: hidden;
+        }
+
+        #gallery>ul>li>img {
+            width: 100%;
+            height: 100%;
+            transition-duration: 1s;
+        }
+
+        #gallery>ul>li>img:hover {
+            top: 0;
+            left: 0;
+            /* position: absolute; */
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS 활용</h1>
+    <h3>폴라로이드 사진처럼 꾸며보기</h3>
+    <div class="polaroid">
+        <img src="img/river.png">
+        <p>범 내려온다...범이 내려온다</p>
+    </div>
+    <br>
+    <h3>갤러리 만들기</h3>
+    <div id="gallery">
+        <ul>
+            <li><img src="img/flower1.png"></li>
+            <li><img src="img/flower2.png"></li>
+            <li><img src="img/flower3.png"></li>
+            <li><img src="img/flower4.png"></li>
+        </ul>
+    </div>
+</body>
+
+</html>

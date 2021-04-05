@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경스타일</title>
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            border: 5px dashed black;
+        }
+
+        .div1 {
+            background-color: darkcyan;
+        }
+
+        .clip {
+            display: inline-block;
+            padding: 5px;
+            background-color: crimson;
+        }
+
+        .bb {
+            background-clip: border-box;
+        }
+
+        .pb {
+            background-clip: padding-box;
+        }
+
+        .cb {
+            background-clip: content-box;
+        }
+
+        .back-img {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            background-image: url(img/river.png);
+            display: inline-block;
+
+        }
+
+        .repeat {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+            background-image: url(img/kakao.jpg);
+        }
+
+        .re {
+            background-repeat: repeat;
+        }
+
+        .rex {
+            background-repeat: repeat-x;
+        }
+
+        .rey {
+            background-repeat: repeat-y;
+        }
+
+        .nore {
+            background-repeat: no-repeat;
+        }
+
+        .position1 {
+            background-position: left center;
+        }
+
+        .position2 {
+            background-position: 70% 80%;
+        }
+
+        .size1 {
+            background-size: auto;
+        }
+
+        .size2 {
+            background-size: contain;
+        }
+
+        .size3 {
+            background-size: cover;
+        }
+
+        .size4 {
+            background-size: 200px 200px;
+        }
+
+        body {
+            background-image: url(img/flower1.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>배경스타일</h1>
+    <hr>
+    <h3>background-color : 요소의 배경색 지정</h3>
+    <pre>선택자 {background-color : 색상표현}</pre>
+    <div class="div div1"></div>
+    <h3>background-clip : 배경 범위 조절</h3>
+    <pre>선택자 {background-clip : border-box | padding-box | content-box}</pre>
+    <div class="div clip bb"></div>
+    <div class="div clip pb"></div>
+    <div class="div clip cb"></div>
+    <h3>background-image : 요소의 배경에 이미지를 저장</h3>
+    <pre>선택자 {background-image : url(이미지파일경로)}</pre>
+    <div class="back-img"></div>
+    <hr>
+    <h3>background-repeat : 배경이미지 반복출력 설정</h3>
+    <pre>선택자{background-repeat : repeat | repeat-x | repeat-y | no-repeat}</pre>
+    <div class="repeat re"></div>
+    <div class="repeat rex"></div>
+    <div class="repeat rey"></div>
+    <div class="repeat nore"></div>
+    <hr>
+    <h3>background-position : 배경의 이미지의 위치를 조정하는 속성</h3>
+    <pre>선택자{background-position : 수평위치 수직위치}</pre>
+    <div class="repeat nore position1"></div>
+    <div class="repeat nore position2"></div>
+    <hr>
+    <h3>background-size : 배경 이미지 크기를 조절하는 속성</h3>
+    <pre>선택자{background-size : auto| contain | cover| 입력값}</pre>
+    <div class="back-img nore size1"></div>
+    <div class="back-img nore size2"></div>
+    <div class="back-img nore size3"></div>
+    <div class="back-img nore size4"></div>
+    <h3>background-origin : 배경이미지 배치 시 기준</h3>
+    <pre>선택자{background-origin : border-box | padding-box | content-box}</pre>
+    <hr>
+    <h3>background-attachement : 웹페이지 스크롤 이동 시 배경이미지 고정 여부</h3>
+    <pre>선택자{backround-attachement : scroll | fixed}</pre>
+</body>
+
+</html>

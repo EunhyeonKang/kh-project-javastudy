@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 250px;
+            height: 200px;
+        }
+
+        .trans1:hover {
+            transform: translateX(100px);
+        }
+
+        .trans2:hover {
+            transform: translateY(100px);
+        }
+
+        .trans3:hover {
+            transform: translate(100px, 100px);
+        }
+
+        .trans4:hover {
+            transform: scaleX(2);
+        }
+
+        .trans5:hover {
+            transform: scaleY(2);
+        }
+
+        .trans6:hover {
+            transform: scale(1.5);
+        }
+
+        .trans7:hover {
+            transform: rotate(45deg);
+        }
+
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border: 1px solid black;
+        }
+
+        .trans8 {
+            transition-duration: 2s;
+        }
+
+        .trans8:hover {
+            background-color: yellow;
+        }
+
+        .trans9 {
+            transition-property: background-color, transform, width, height;
+            transition-duration: 5s, 3s, 1s, 1s;
+        }
+
+        .trans9:hover {
+            background-color: yellow;
+            transform: rotate(180deg);
+            width: 250px;
+            height: 250px;
+        }
+
+        .trans10 {
+            transition-duration: 3s;
+        }
+
+        .trans10:hover {
+            background-color: yellow;
+            transform: rotate(180deg);
+        }
+
+        #div {
+            width: 500px;
+            height: 300px;
+        }
+
+        #div>img {
+            width: 100%;
+            height: 100%;
+            transition-duration: 1s;
+        }
+
+        #div>img:hover {
+            transform: scale(1.6);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>트램스폼 속성 사용</h1>
+    <h3>지정한 크기만큼 좌우로 이동</h3>
+    <img src="img/flower1.png" class="trans1">
+    <hr>
+    <h3>지정한 크기만큼 상하로 이동</h3>
+    <img src="img/flower2.png" class="trans2">
+    <hr>
+    <h3>지정한 크기만큼 좌우,상하 이동</h3>
+    <img src="img/flower3.png" class="trans3">
+    <hr>
+    <h3>지정한 크기만큼 좌우 확대</h3>
+    <img src="img/flower1.png" class="trans4">
+    <hr>
+    <h3>지정한 크기만큼 상하 확대</h3>
+    <img src="img/flower2.png" class="trans5">
+    <hr>
+    <h3>지정한 크기만큼 좌우 상하 확대</h3>
+    <img src="img/flower3.png" class="trans6">
+    <hr>
+    <h3>지정한 각도만큼 좌우 상하 확대</h3>
+    <img src="img/flower4.png" class="trans7">
+    <hr>
+    <h1>트랜지션</h1>
+    <h3>시간에 따른 속성 변화</h3>
+    <div class="trans8"></div>
+    <h3>여러 속성별 시간차 변화</h3>
+    <div class="trans9"></div>
+    <h3>시간 지연</h3>
+    <div class="trans10"></div>
+    <hr>
+    <div id="div">
+        <img src="img/river.png">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+    </div>
+</body>
+
+</html>
