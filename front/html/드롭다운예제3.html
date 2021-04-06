@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navi {
+            margin: 100px;
+            position: relative;
+        }
+
+        .navi ul {
+            overflow: hidden;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navi ul>li {
+            float: left;
+        }
+
+        .navi ul>li>a {
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 18px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-decoration: none;
+        }
+
+        .navi>ul {
+            background-color: #ffe761;
+            width: 800px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .navi>ul>li>a {
+            color: #092e20;
+        }
+
+        .sub {
+            left: 0;
+            display: none;
+            position: absolute;
+            background-color: #234f32;
+            width: 800px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .sub>li>a {
+            color: #ffe761;
+        }
+
+        .navi>ul>li:hover>a {
+            color: #ffe761;
+            background-color: #326342;
+            font-weight: 900;
+        }
+
+        .navi>ul>li:hover>.sub {
+            display: block;
+        }
+        .sub>li:hover>a{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>가로탭메뉴 만들기</h3>
+    <hr>
+    <br><br><br>
+    <div class="navi">
+        <ul>
+            <li>
+                <a href="#">프로그램 언어</a>
+                <ul class="sub">
+                    <li><a href="#">JAVA</a></li>
+                    <li><a href="#">C</a></li>
+                    <li><a href="#">C++</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li><a href="#">데이터베이스</a></li>
+            <li>
+                <a href="#">FrontEnd</a>
+                <ul class="sub">
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">게시판</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

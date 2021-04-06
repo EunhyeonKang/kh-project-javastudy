@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="nav.css" ; rel="stylesheet" type="text/css">
     <title>Color</title>
     <style>
         a {
@@ -49,43 +50,6 @@
             background-color: #eb8921;
             color: black;
         }
-
-        .nav1 {
-            background-color: teal;
-            width: 600px;
-            height: 40px;
-        }
-
-        div>ul {
-            padding: 0;
-            margin: 0;
-        }
-
-        div>ul>li {
-            list-style-type: none;
-            float: left;
-            height: 40px;
-            width: 25%;
-            text-align: center;
-        }
-
-        div>ul>li>a {
-            position: relative;
-            float: left;
-            background-color: teal;
-            color: white;
-            height: 32px;
-            margin-left: 25px;
-            margin-top: 8px;
-        }
-
-        div>ul>li>ul {
-            color: white;
-            list-style-type: none;
-            background-color: yellow;
-            margin-top: 40px;
-            padding: 0;
-        }
     </style>
 </head>
 
@@ -125,6 +89,33 @@
     <hr>
     <br><br><br>
     <div class="nav1">
+        <ul>
+            <li>
+                <a href="#">프로그램 언어</a>
+                <ul class="sub">
+                    <li><a href="#">JAVA</a></li>
+                    <li><a href="#">C</a></li>
+                    <li><a href="#">C++</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li><a href="#">데이터베이스</a></li>
+            <li>
+                <a href="#">FrontEnd</a>
+                <ul class="sub">
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">게시판</a></li>
+        </ul>
+    </div>
+    <h3>드롭다운메뉴 만들기</h3>
+    <hr>
+    <br><br><br>
+    <div class="nav2">
         <ul>
             <li>
                 <a href="#">프로그램 언어</a>

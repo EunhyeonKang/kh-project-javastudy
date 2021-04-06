@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navi4 ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .navi4 ul>li {
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .n4_sub>li:last-child {
+            border: none;
+        }
+
+        .navi4>ul>li>a {
+            display: block;
+            width: 200px;
+            height: 45px;
+            text-decoration: none;
+            background-color: #50021b;
+            color: #d7e2e9;
+            padding-left: 45px;
+            line-height: 45px;
+            font-weight: bold;
+        }
+
+        .navi4>ul>li:hover>a {
+            background-color: #ffcb35;
+            color: #1f4864;
+        }
+
+        .n4_sub>li>a {
+            display: block;
+            width: 175px;
+            height: 45px;
+            text-decoration: none;
+            background-color: #e95c40;
+            color: #d7e2e9;
+            padding-left: 70px;
+            line-height: 45px;
+            font-weight: bold;
+        }
+
+        .n4_sub>li:hover>a {
+            background-color: #1f4864;
+        }
+
+        .n4_sub {
+            height: 0;
+        }
+
+        .navi4>ul>li:hover>.n4_sub {
+            height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>드롭다운메뉴 만들기</h3>
+    <hr>
+    <br><br><br>
+    <div class="navi4">
+        <ul>
+            <li>
+                <a href="#">프로그램 언어</a>
+                <ul class="n4_sub">
+                    <li><a href="#">JAVA</a></li>
+                    <li><a href="#">C</a></li>
+                    <li><a href="#">C++</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li><a href="#">데이터베이스</a></li>
+            <li>
+                <a href="#">FrontEnd</a>
+                <ul class="n4_sub">
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">게시판</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
