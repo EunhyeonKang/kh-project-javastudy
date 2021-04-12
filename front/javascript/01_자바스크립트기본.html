@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            alert("이터널방식");
+        }
+        function func3() {
+            document.write("<h1>클릭!!!!</h1>");
+        }
+        function func4() {
+            window.alert("경고창");
+        }
+        function func5() {
+            console.log("로그확인");
+        }
+        function func6() {
+            var data = window.confirm("자바스크립트는 할만해요?");
+            console.log(data);
+            if (data) {
+                alert("할만하고요..");
+            } else {
+                alert("다시해보죠..")
+            }
+            //확인 true 취소면 false
+        }
+        function func7() {
+            var data = window.prompt('당신의 이름은 무엇인가요?');
+            alert(data);
+            // 확인누르면 값이 데이터에 들어감 취소면 null
+        }
+    </script>
+    <script src="test.js" type="text/javascript"></script>
+</head>
+
+<>
+    <h1>자바스크립트 개요</h1>
+    <hr>
+    <h2>자바스크립트 작성 방식</h2>
+    <h3>inline 방식 : 자바스크립트 양이 한줄 혹은 두줄정도로 소량일때 사용</h3>
+    <h3>internal 방식 : html 파일 내부의 자바스크립트 소스 작성(script태그 내부에 내용 작성)</h3>
+    <h3>external 방식 : 자바스크립트 파일을 따로 외부에 작성한 후 불러오는 방식</h3>
+    <button onclick="javascript:alert('iline');">inline</button>
+    <button onclick="func1()">internal</button>
+    <button onclick="func2()">external</button>
+    <hr>
+    <h2>데이터를 출력하는 방법</h2>
+    <h3>1. docoment.write(내용) : 브라우저 화면상의 값을 출력</h3>
+    <h3>2. window.alert(내용) : 내용을 메세지창에 출력(window 생략 가능)</h3>
+    <h3>3. console.log(내용) : 개발자도구 화면의 콘솔에 출력(개발도중 값 확인을 목적으로 사용)</h3>
+    <button onclick="func3();">document.write()</button>
+    <button onclick="func4();">window.alert()</button>
+    <button onclick="func5();">console.long()</button>
+    <hr>
+    <h3>1. window.confirm("질문") : 질문에 대해 예/아니오의 결과를 얻을 때 사용(true/false)</h3>
+    <h3>2. window.prompt("질문") : 질문에 대해 입력할 텍스트 필드와 확인/취소 버튼이 있는 대화창 출력</h3>
+    <button onclick="func6();">confirm</button>
+    <button onclick="func7();">prompt</button>
+    </body>
+
+</html>

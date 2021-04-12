@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add() {
+            /*
+            1.input class(배열) name값 가져오기
+            2.첫번째 값, 두번째값 숫자로 형변환
+            3.결과값
+            4.div result 가져오기
+            5.result innerHTML 값에 결과값넣기
+            */
+            var inputNum1 = document.getElementsByClassName("inputNum1");
+            var num1 = Number(inputNum1[0].value);
+            var num2 = Number(inputNum1[1].value);
+            var result = num1 + num2;
+            var result1 = document.getElementById("result1");
+            result1.innerHTML = result;
+        }
+        function sub() {
+            var inputNum1 = document.getElementsByClassName("inputNum1");
+            var num1 = Number(inputNum1[0].value);
+            var num2 = Number(inputNum1[1].value);
+            var result = num1 - num2;
+            var result1 = document.getElementById("result1");
+            result1.innerHTML = result;
+        }
+        function mul() {
+            var inputNum1 = document.getElementsByClassName("inputNum1");
+            var num1 = Number(inputNum1[0].value);
+            var num2 = Number(inputNum1[1].value);
+            var result = num1 * num2;
+            var result1 = document.getElementById("result1");
+            result1.innerHTML = result;
+        }
+        function div() {
+            var inputNum1 = document.getElementsByClassName("inputNum1");
+            var num1 = Number(inputNum1[0].value);
+            var num2 = Number(inputNum1[1].value);
+            var result = num1 / num2;
+            var result1 = document.getElementById("result1");
+            result1.innerHTML = result;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>함수 사용 방식</h1>
+    <hr>
+    <h2>계산기 만들기1</h2>
+    첫번째 수 입력 : <input type="text" class="inputNum1"><br>
+    두번째 수 입력 : <input type="text" class="inputNum1"><br>
+    <button onclick="add()">더하기</button>
+    <button onclick="sub()">빼기</button>
+    <button onclick="mul()">곱하기</button>
+    <button onclick="div()">나누기</button>
+    <p id="result1"></p>
+</body>
+
+</html>

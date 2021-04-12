@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            console.log('테스트1');
+            // console.log('테스트2');
+            // console.log('테스트3');
+            /* 
+                console.log('테스트4');
+            */
+            console.log('테스트5');
+        }
+        function func2() {
+            //자료현 구분없이 모두 var선언 -> 대입되는 자료형에 따라서 변수타입 설정
+            //const, Let
+            // var data = "Hello Javascript";
+            var data = 'Hello Javascript';
+            var upper = data.toUpperCase();     //모두 대문자로 변경하여 리턴
+            console.log(upper);
+            var lower = data.toLowerCase();     //모두 소문자로 변경하여 리턴
+            console.log(lower);
+            console.log(data.length);           //문자열 길이 리턴
+            console.log(data.indexOf("J"));     //앞에서부터 J찾아서 위치 리턴 
+            console.log(data.charAt(3));        //3번위치의 문자 리턴
+            console.log(data.substring(3, 7));  //3번부터 7번전까지 문자열 리턴
+            var arr = data.split(" ");          //매개변수인 " " 공백을 기준으로 잘라서 리턴
+            console.log(arr[0]);
+            console.log(arr[1]);
+        }
+        function func3() {
+            var data1 = 3.1;
+            var data2 = -5;
+            console.log(Math.abs(data2));       //절대값
+            console.log(Math.round(data1));     //소수점 반올림
+            console.log(Math.ceil(data1));      //소수점 올림
+            console.log(Math.floor(data1));     //소수점 버림
+        }
+        function func4() {
+            var data;
+            console.log(data);
+            data = true;
+            if (data) {
+                console.log("참");
+            } else {
+                console.log("거짓")
+            }
+        }
+        function func3() {
+            var data1 = "1";
+            var data2 = "3";
+            console.log(data1 + data2);
+            var data3 = 10;
+            var data4 = 20;
+            console.log(data3 + data4);
+            console.log(String(data3) + String(data4));
+        }
+        var data2 = "전역변수"
+        function func6() {
+            var data1 = "테스트1";
+            console.log(data1);
+            console.log(data2);
+        }
+        function func7() {
+            console.log(data1);
+            console.log(data2);
+        }
+        function func8() {
+            var num1 = "1";
+            var num2 = 1;
+            if (num1 == num2) {
+                console.log("같음");
+            } else {
+                console.log("다름");
+            }
+            //자료형까지 같은지 확인
+            if (num1 === num2) {
+                console.log("같음1");
+            } else {
+                console.log("다름1");
+            }
+        }
+        function func9() {
+            var data1 = 1;
+            var data2 = "111";
+            var data3 = false;
+            console.log(typeof (data1));
+            console.log(typeof (data2));
+            console.log(typeof (data3));
+        }
+        function func10() {
+            var data = propmt("숫자를 입력하세요");
+            data % 2 == 0 || alert("홀수");
+            data % 2 == 0 && alert("짝수");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>자바스크립트 기본 문법</h1>
+    <hr>
+    <h2>주석</h2>
+    <h3>한줄 주석 : //</h3>
+    <h3>여러줄 주석 : /* */</h3>
+    <button onclick="func1();">주석테스트</button>
+    <h3>자바스크립트 자료형</h3>
+    <h2>1. 문자열 : "",''로 묶여있는 리터럴</h2>
+    <p>string이라는 내장 객체 타입으로 기본적으로 사용할 수 있는 메소드가 존재함</p>
+    <h3>2. 숫자 : 정수형숫자 부동소수점 숫자 처리</h3>
+    <p>nukmber 타입으로 Math라는 내장객체 사용 가능</p>
+    <h3>3. 기타자료형 : 논리형(true/false), 객체(object), undefined(식별되지 않음),함수(function), 배열(Array)</h3>
+    <button onclick="func2();">문자열</button>
+    <button onclick="func3();">숫자</button>
+    <button onclick="func4();">기타</button>
+    <hr>
+    <h2>자바스크립트 형변환</h2>
+    <h3>문자->숫자로 : number(문자) / 숫자->문자로 String(숫자)</h3>
+    <button onclick="func5();">형변환</button>
+    <hr>
+    <h2>자바스크립트 지역변수/전역변수</h2>
+    <button onclick="func6();">지역변수</button>
+    <button onclick="func7();">전역변수</button>
+    <hr>
+    <h2>자바스크립트 연산자</h2>
+    <h3>자바스크립트 연산자는 자바연산자와 대부분 유사하지만 추가연산자가 존재</h3>
+    <h3> ===, !== : 자료형과 같이 모두 일치하는지 확인하는 연산자</h3>
+    <h3>typeof() : 해당하는 값이 어떤 자료형을 갖는지 확인하는 연산자</h3>
+    <button onclick="func8();">===,!==</button>
+    <button onclick="func9();">typeof</button>
+    <hr>
+    <h2>자바스크립트 제어문</h2>
+    <h3>1. 조건문(if, if~else,if~else if, switch, 짧은조거문(||,&&))</h3>
+    <h3>2. 반복문(for, while)</h3>
+    <h3>3. 분기문(continue, break)</h3>
+    <button onclick="func10();">짧은 조건문</button>
+</body>
+
+</html>

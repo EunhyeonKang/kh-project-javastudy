@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            var input1 = document.getElementById("input1");
+            var inputValue = input1.value;
+            var query = document.getElementById("query");
+            query.innerHTML = inputValue;
+        }
+        function func2() {
+            var input2 = document.getElementById("input2");
+            var num = input2.value;
+            console.log(typeof (num));
+            var result = document.getElementById("result");
+            if (num % 2 == 1) {
+                result.innerHTML = "홀수!";
+            } else if (num % 2 == 0) {
+                result.innerHTML = "짝수!"
+            } else {
+                result.innerHTML = "숫자가 아닙니다!";
+            }
+
+        }
+        function func3() {
+            var img = document.getElementsByTagName("img");
+            img[0].src = "img/angel.png";
+        }
+        function func4() {
+            var p1 = document.getElementsByClassName("p1");
+            p1[0].style.color = "navy";
+        }
+    </script>
+    <style>
+        body {
+            display: block;
+            margin: 8px;
+        }
+
+        div>p {
+            background-color: lightgoldenrodyellow;
+            width: 500px;
+            border: 1px solid black;
+            padding: 50px;
+        }
+
+        div {
+            color: lightgoldenrodyellow;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>실습1</h1>
+    <p>다음 문제를 보고 요구하는 함수를 작성해주세요.</p>
+    <hr>
+    <h2>문제 1. 다음 쿼리문을 보고 올바르게 고쳐서 다시 출력해주세요.</h2>
+    <div>
+        <p id="query">INSERT FROM MEMBER INTO (100,'홍길동','개발팀',3000000);</p>
+    </div>
+    수정답안 입력 : <input type="text" id="input1" size="50">
+    <button onclick="func1();">수정하기</button>
+    <hr>
+    <h2>문제 2. 숫자를 입력받아 홀수인지 짝수인지 구별하고, 숫자가 아닌경우 숫자가 아니라고 출력</h2>
+    <div>
+        <p id="result">여기에 결과를 출력해주세요!</p>
+    </div>
+    숫자 입력 : <input type="text" id="input2" size="50">
+    <button onclick="func2();">결과확인</button>
+    <hr>
+    <h2>문제 3. 아래 이미지를 클릭했을 때 angel.png 이미지로 변경해주세요</h2>
+    <div>
+        <img src="img/smile.jpg" width="200px" hight="200px" onclick="func3();">
+    </div>
+    <hr>
+    <h2>문제 4. 아래 영역의 글씨색과 배경색이 동일해서 보이지 않습니다. 글씨색을 navy로 변경해주세요</h2>
+    <div>
+        <p class="p1">navy</p>
+    </div>
+    <button onclick="func4();">변경하기</button>
+</body>
+
+</html>
