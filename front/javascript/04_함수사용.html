@@ -9,7 +9,7 @@
     <script>
         function add() {
             /*
-            1.input class(배열) name값 가져오기
+            1.input class(배열) name
             2.첫번째 값, 두번째값 숫자로 형변환
             3.결과값
             4.div result 가져오기
@@ -46,6 +46,43 @@
             var result1 = document.getElementById("result1");
             result1.innerHTML = result;
         }
+        function calc1(oper) {
+            var inputNum = document.getElementsByClassName("inputNum2");
+            var num1 = Number(inputNum[0].value);
+            var num2 = Number(inputNum[1].value);
+            var result;
+            if (oper == '+') {
+                result = num1 + num2;
+            } else if (oper == '-') {
+                result = num1 - num2;
+            } else if (oper == '*') {
+                result = num1 * num2;
+            } else {
+                result = num1 / num2;
+            }
+            var result2 = document.getElementById("result2");
+
+            result2.innerHTML = result;
+        }
+        function calc2(obj) {
+            var inputNum = document.getElementsByClassName("inputNum3");
+            var num1 = Number(inputNum[0].value);
+            var num2 = Number(inputNum[1].value);
+            var oper = obj.innerHTML;
+            var result;
+            if (oper == '+') {
+                result = num1 + num2;
+            } else if (oper == '-') {
+                result = num1 - num2;
+            } else if (oper == '*') {
+                result = num1 * num2;
+            } else {
+                result = num1 / num2;
+            }
+            var result2 = document.getElementById("result3");
+
+            result2.innerHTML = result;
+        }
     </script>
 </head>
 
@@ -60,6 +97,22 @@
     <button onclick="mul()">곱하기</button>
     <button onclick="div()">나누기</button>
     <p id="result1"></p>
+    <h2>계산기 만들기1</h2>
+    첫번째 수 입력 : <input type="text" class="inputNum2"><br>
+    두번째 수 입력 : <input type="text" class="inputNum2"><br>
+    <button onclick="calc1('+')">+</button>
+    <button onclick="calc1('-')">-</button>
+    <button onclick="calc1('*')">*</button>
+    <button onclick="calc1('/')">/</button>
+    <p id="result2"></p>
+    <h2>계산기 만들기1</h2>
+    첫번째 수 입력 : <input type="text" class="inputNum3"><br>
+    두번째 수 입력 : <input type="text" class="inputNum3"><br>
+    <button onclick="calc2(this)">+</button>
+    <button onclick="calc2(this)">-</button>
+    <button onclick="calc2(this)">*</button>
+    <button onclick="calc2(this)">/</button>
+    <p id="result3"></p>
 </body>
 
 </html>

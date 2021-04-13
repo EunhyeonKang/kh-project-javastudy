@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            //1. 길이가 있는 배열 선언
+            var arr = new Array(3);  //길이가 3인 배열 선언 -> 0~2
+            arr[0] = 100;
+            arr[1] = "hi";
+            arr[2] = false;
+            for (var i = 0; i < arr.length; i++) {
+                console.log("type : " + typeof (arr[i]));
+                console.log("value : " + arr[i]);
+            }
+            console.log(arr);
+        }
+        function func2() {
+            var arr = new Array();  //길이를 선언하지 않은 배열
+            arr.push(100);
+            arr.push("hi");
+            arr.push(true);
+            for (var i = 0; i < arr.length; i++) {
+                console.log("type : " + typeof (arr[i]));
+                console.log("value : " + arr[i]);
+            }
+            console.log(arr);
+        }
+        function func3() {
+            var arr = [100, "hi", false];
+            for (var i = 0; i < arr.length; i++) {
+                console.log("type : " + typeof (arr[i]));
+                console.log("value : " + arr[i]);
+            }
+            console.log(arr);
+        }
+        var arr1 = [1, 2, 3, "하이", true, "abc"];
+        var arr2 = [4, 5, 6];
+        function func4() {
+            var idx = arr1.indexOf("하이");
+            console.log(idx);
+        }
+        function func5() {
+            var arr = arr1.concat(arr2);
+            console.log(arr1);
+            console.log(arr2);
+            console.log(arr);
+        }
+        function func6() {
+            var str1 = arr1.join("/");
+            var str2 = arr2.join(" ");
+            var str3 = arr1.join();
+            console.log(str1);
+            console.log(str2);
+            console.log(str3);
+        }
+        function func7() {
+            arr2.reverse(); //원본 배열의 순서가 변경됨
+            console.log(arr2);
+        }
+        function func8() {
+            console.log(arr1);
+            arr1.push("첫번째 추가");
+            console.log(arr1);
+            arr1.push("두번째 추가");
+            console.log(arr1);
+            arr1.pop();
+            console.log(arr1);
+            arr1.unshift(100);
+            console.log(arr1);
+            arr1.unshift(200);
+            console.log(arr1);
+            arr1.shift();
+            console.log(arr1);
+        }
+        function func9() {
+            console.log(arr1);
+            var arr = arr1.slice(1, 5); //arr배열의 1번 인덱스부터 5번 전까지 값 복사
+            console.log(arr);
+
+        }
+        function func10() {
+            console.log(arr1);
+            arr1.splice(1, 2, 1000);           //1번 인덱스부터 2개지우고 그자리에 1000삽입
+            console.log(arr1);
+            arr1.splice(1, 1);                //1번인덱스부터 1개 지움(지우기만)
+            console.log(arr1);
+            arr1.splice(1, 0, "중간추가");    //1번인덱스부터 0개 지우고 값을 추가(추가만함)
+            console.log(arr1);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>자바스크립트 배열</h1>
+    <hr>
+    <h2>배열 선언</h2>
+    <button onclick="func1();">배열선언1</button>
+    <button onclick="func2();">배열선언2</button>
+    <button onclick="func3();">배열선언3</button>
+    <hr>
+    <h2>배열 또한 하나의 자바스크립트 객체로 기본적으로 사용가능한 함수 존재</h2>
+    <h3>indexOf(값) : 배열에서 해당하는 값이 위치한 인덱스번호 리턴</h3>
+    <h3>concat(배열명) : 매개변수로 받은 배열과 결합하여 리턴</h3>
+    <h3>join("구분기호") : 배열을 구분기호를 이용하여 결합하여 하나의 문자열로 반환</h3>
+    <h3>push(값) : 배열 맨 뒤에 요소 추가</h3>
+    <h3>pop() : 배열 맨 뒤에 요소 제거</h3>
+    <h3>unshift(값) : 배열 제일 앞에 요소 추가</h3>
+    <h3>shift() : 배열 제일 앞에 요소 제거</h3>
+    <h3>slice(숫자,숫자) : 배열에서 지정한 범위의 값을 복사하여 리턴</h3>
+    <h3>splice(숫자,숫자,[값]) : 배열 범위의 값을 제거하고, 새로운 값 추가</h3>
+    <button onclick="func4();">indexOf</button>
+    <button onclick="func5();">concat</button>
+    <button onclick="func6();">join</button>
+    <button onclick="func7();">reverse</button>
+    <button onclick="func8();">배열값 추가/삭제</button>
+    <button onclick="func9();">slice</button>
+    <button onclick="func10();">splice</button>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tabMenu {
+            width: 500px;
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .tabs {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            list-style-type: none;
+        }
+
+        .tab {
+            border: 1px solid black;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 4px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            float: left;
+        }
+
+        .tab:hover {
+            cursor: pointer;
+        }
+
+        .tabContent {
+            width: 500px;
+            height: 300px;
+            background-color: #fff;
+            display: none;
+        }
+    </style>
+    <script>
+        function selectTab(idx) {
+            var tabContents = document.getElementsByClassName("tabContent");
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabs[i].style.border = "1px solid black";
+                tabs[i].style.backgroundColor = "transparent";
+                tabContents[i].style.display = "none";
+            }
+            tabs[idx].style.border = "1px solid #fff";
+            tabs[idx].style.backgroundColor = "#fff";
+            tabContents[idx].style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="tabMenu">
+        <ul class="tabs">
+            <li class="tab" onclick="selectTab(0);">메뉴1</li>
+            <li class="tab" onclick="selectTab(1);">메뉴2</li>
+            <li class="tab" onclick="selectTab(2);">메뉴3</li>
+        </ul>
+        <div class="tabContent">메뉴1번 해당내용</div>
+        <div class="tabContent">메뉴2번 해당내용</div>
+        <div class="tabContent">메뉴3번 해당내용</div>
+    </div>
+</body>
+
+</html>
