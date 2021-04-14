@@ -88,42 +88,21 @@
             // arr.splice(0,arr.length);
             arr = new Array();
         }
-        var color = [];
-        var colorTmp = [];
-        var cnt = 0;
+        var divs = new Array();
         function exam3(obj) {
+            // div.style.display = "none";
+            // divs.push(obj);
+            var html = obj.outerHTML;
+            divs.push(html);
+            obj.style.display = "none";
 
-            var divs = document.getElementsByClassName("divs");
-            if (divs[obj].id == "red") {
-                cnt++;
-                divs[obj].style.display = 'none';
-                color.push(divs[obj]);
-            } else if (divs[obj].id == 'blue') {
-                cnt++;
-                divs[obj].style.display = 'none';
-                color.push(divs[obj]);
-            } else if (divs[obj].id == 'green') {
-                cnt++;
-                divs[obj].style.display = 'none';
-                color.push(divs[obj]);
-            } else if (divs[obj].id == 'pink') {
-                cnt++;
-                divs[obj].style.display = 'none';
-                color.push(divs[obj]);
-            } else if (divs[obj].id == 'yellow') {
-                cnt++;
-                divs[obj].style.display = 'none';
-                color.push(divs[obj]);
-            }
-            if (divs.length == cnt) {
-                for (var i = 0; i < color.length; i++) {
-                    console.log(color[i]);
-                    // color[i].style.display = "inline-block";
-                }
-                color = [];
-                cnt = 0;
+            if (divs.length == 5) {
+                var wrap = document.getElementById("divWrap");
+                wrap.innerHTML = divs.join("");
+                divs = new Array();
             }
         }
+
     </script>
 </head>
 
@@ -157,11 +136,11 @@
     <fieldset>
         <legend>보기</legend>
         <div id="divWrap">
-            <div class="divs" id="red" onclick="exam3(0)"></div>
-            <div class="divs" id="blue" onclick="exam3(1)"></div>
-            <div class="divs" id="green" onclick="exam3(2)"></div>
-            <div class="divs" id="pink" onclick="exam3(3)"></div>
-            <div class="divs" id="yellow" onclick="exam3(4)"></div>
+            <div class="divs" id="red" onclick="exam3(this)"></div>
+            <div class="divs" id="blue" onclick="exam3(this)"></div>
+            <div class="divs" id="green" onclick="exam3(this)"></div>
+            <div class="divs" id="pink" onclick="exam3(this)"></div>
+            <div class="divs" id="yellow" onclick="exam3(this)"></div>
         </div>
     </fieldset>
 

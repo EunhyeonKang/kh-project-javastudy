@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            //객체 생성은 {키1:값1, 키2:값2....}
+            var testObj = { name: "강은현", b: 300, addr: "인천", arr: [1, 2, 3, 4], obj: { a: 1, b: 2, c: 3 } }; //키 : name,b,addr
+            console.log(testObj);
+            //alert을 통해서 주소만
+            alert(testObj.addr + "/" + testObj.name);    //객체명,속성명
+            testObj.addr = "서울";
+            alert(testObj.addr);
+            alert(testObj.arr[2]);
+            alert(testObj.obj.b);
+        }
+        function func2() {
+            var data = {
+                a: 100,
+                b: 200,
+                c: function () {
+                    console.log("객체 내부 함수");
+                    return "리턴값";
+                }
+            }
+            console.log(data);
+            console.log(data.b);
+            console.log(data.c());
+        }
+        function func3() {
+            var data = { a: 100, b: 200 };
+            console.log(data);
+            data.c = 300;
+            console.log(data);
+            delete (data.b);
+            console.log(data);
+        }
+        function func4() {
+            var data = { a: 100, b: 200 };
+            console.log('a' in data);
+            console.log('c' in data);
+            //a ->1000 b->3000
+            with (data) {
+                a = 1000;
+                b = 3000;
+            }
+            // data.a = 1000;
+            // data.b = 3000;
+            console.log(data);
+        }
+        function func5() {
+            var name = window.prompt("이름 입력");
+            var age = window.prompt("나이 입력");
+            var addr = prompt("주소 입력");
+            var member = {
+                name: name,
+                age: age,
+                addr: addr,
+                print: function () {
+                    var str = this.name + "/" + this.age + "/" + this.addr;
+                    return str;
+                }
+            };
+            console.log(member.print());
+        }
+        function func6() {
+            var arr = new Array();
+            var obj1 = { a: 100, b: 200 };
+            var obj2 = { name: "강은현", addr: "경기도" };
+            var obj3 = { a: "안녕하세요", d: "hi" };
+            arr.push(obj1);
+            arr.push(obj2);
+            arr.push(obj3);
+            console.log(arr);
+            console.log(arr[1].addr);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>객체</h1>
+    <hr>
+    <button onclick="func1();">객체 생성하기1</button>
+    <button onclick="func2();">객체 생성하기2</button>
+    <button onclick="func3();">객체 생성하기3</button>
+    <button onclick="func4();">객체 생성하기4</button>
+    <button onclick="func5();">값을 입력받아 객체생성하여 출력</button>
+    <button onclick="func6();">객체배열</button>
+</body>
+
+</html>

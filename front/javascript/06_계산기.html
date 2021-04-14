@@ -1,0 +1,134 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 3px solid blue;
+            margin: 0 auto;
+        }
+
+        #result {
+            height: 50px;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: right;
+            border: 1px solid black;
+        }
+
+        button {
+            font-size: 1.5em;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        function calc(btn) {
+            var result = document.getElementById("result");
+            var val = btn.innerHTML;
+            if (val == "AC") {
+                result.innerHTML = 0;
+            } else if (val == "=") {
+                result.innerHTML = eval(result.innerHTML);
+            } else {
+                if (result.innerHTML == 0) {
+                    result.innerHTML = val;
+                } else {
+                    result.innerHTML += val;    //result.innerHTML = result.innerHTML + val;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>계산기 만들기</h1>
+    <hr>
+    <table>
+        <tbody>
+            <tr>
+                <td colspan="4">
+                    <div id="result">0</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calc(this);">(</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">)</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">%</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">AC</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calc(this);">7</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">8</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">9</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">/</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calc(this);">4</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">5</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">6</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">*</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calc(this);">1</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">2</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">3</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calc(this);">0</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">.</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">=</button>
+                </td>
+                <td>
+                    <button onclick="calc(this);">+</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
