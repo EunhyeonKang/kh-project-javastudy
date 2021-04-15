@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #timeZone {
+            width: 400px;
+            height: 200px;
+            border: 3px solid red;
+            font-size: 50px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function func1() {
+            window.open("http://www.naver.com", "_blank", "width=500px,height=500px,top=200px,left=500px");
+        }
+        var timeoutId;
+        function func2() {
+            timeoutId = window.setTimeout(function () {
+                alert("버튼을 누르고 3초가 지나면 나타남");
+            }, 3 * 1000);
+        }
+        function func3() {
+            window.clearTimeout(timeoutId);
+        }
+        var intervalId;
+        function func4() {
+            var timeZone = document.getElementById("timeZone");
+            intervalId = window.setInterval(function () {
+                var date = new Date();
+                var currentTime = date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds();
+                timeZone.innerHTML = currentTime;
+            }, 1000)
+        }
+        function func5() {
+            window.clearInterval(intervalId);
+        }
+        //자동으로 실행
+        window.onload = function () {
+            var onload = document.getElementById("onload");
+            console.log(onload.innerHTML);
+        }
+        function func6() {
+            //location.hash = "id이름"
+            location.hash = "top";
+        }
+        function func7() {
+            //location.href = "주소";
+            location.href = "http://www.naver.com";
+        }
+        function func8() {
+            //새로고침
+            location.reload();
+        }
+        function func9() {
+            //현재 위치를 조회하는 navigator 객체를 사용
+            navigator.geolocation.getCurrentPosition(currentLocation);
+        }
+        function currentLocation(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            console.log("위도 : " + latitude);
+            console.log("경도 : " + longitude);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="top">BOM(Browser Object Model)</h1>
+    <hr>
+    <h2>window객체</h2>
+    <h3>window.open() : 높이와 너비를 입력하여 새창을 띄어줌</h3>
+    <h3>setTimeout(함수,시간(ms)) : 일정시간 후 함수를 한번 실행 id값 리턴</h3>
+    <h3>clearTimeout(id) : settimeout()실행을 종료</h3>
+    <h2>setInterval(함수,시간(ms)) : 일정 시간마다 함수를 반복하여 실행 id값 리턴</h2>
+    <h3>clearInterval(id) : setInterval()실행을 종료</h3>
+    <h3>window.onloar : 윈도우 객체가 로드가 완료되면 자동으로 실행되는 함수(윈도우 객체 로드 완료 : 모든 태그가 화면에 나타나면)</h3>
+
+    <button onclick="func1()">open</button>
+    <button onclick="func2()">setTimeout</button>
+    <button onclick="func3()">clearTimeout</button>
+    <button onclick="func4()">setInterval</button>
+    <button onclick="func5()">clearInterval</button>
+    <span id="onload">onloadTest</span>
+    <p id="timeZone"></p>
+    <hr>
+    <h2>location : 브라우저 주소표시줄과 관련된 객체</h2>
+    <button onclick="func6();">location.hash</button>
+    <button onclick="func7();">location.gref</button>
+    <button onclick="func8();">location.reload</button>
+    <hr>
+    <h2>navigator : 브라우저 정보에 대한 객체</h2>
+    <button onclick="func9();">navigator</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id="bottom"></div>
+    <!-- <script>
+        var onload = document.getElementById("onload");
+        alert(onload.innerHTML);
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1 {
+            border: 5px solid black;
+            height: 500px;
+
+        }
+    </style>
+    <script>
+        //1. 텍스트 노드를 갖는 DOM 생성해서 추가하기
+        function func1() {
+            //1. 요소노드 생성
+            var p1 = document.createElement("p");       //p태그 객체 생성
+            var div1 = document.createElement("div");   //div태그 객체 생성
+            //2. 요소노드에 넣을 텍스트노드 생성
+            var content1 = document.createTextNode("p태그 내부내용");
+            var content2 = document.createTextNode("<h1>abc</h1>");
+            //3. 요소노드에 텍스트노드를 추가
+            p1.appendChild(content1);
+            p1.appendChild(content2);
+            //div1.appendChild(content2);
+            // div1.innerHTML = "<h1>abc</abc>";
+            var d1 = document.getElementById("d1");
+            d1.appendChild(p1);
+            d1.appendChild(div1);
+        }
+        //2. 텍스트 노드를 갖지 않는 DOM생성
+        function func2() {
+            //1. 요소노드 생성
+            var img1 = document.createElement("img");   //img태그 생성
+            //2. 요소노드 속성설정
+            img1.src = "img/smile.jpg";
+            //3. img태그 크기 설정 시 px을 빼야 px단위로 들어감
+            img1.width = "150";
+            img1.height = "150";
+            img1.setAttribute("class", "image");
+            //3. #d1에 img1태그 추가
+            var d1 = document.getElementById("d1");
+            d1.appendChild(img1);
+        }
+        var count = 0;
+        function func3() {
+            //1. 요소노드 생성
+            var p1 = document.createElement("p");
+            //2. 요소노드에 클래스 속성 추가
+            p1.setAttribute("class", "delNode");
+            //3. 텍스트노드 생성
+            var content = document.createTextNode("삭제용_" + (count++));
+            //4. 요소노드에 텍스트 노드 추가
+            p1.appendChild(content);
+            d1.appendChild(p1);
+        }
+        function func4() {
+            var delNode = document.getElementsByClassName("delNode");
+            delNode[1].remove();
+        }
+        function func5() {
+            var parentNode = document.getElementById("d1");
+            var delNode = document.getElementsByClassName("delNode");
+            parentNode.removeChild(delNode[1]);
+        }
+        function func6() {
+            // var parentNode = document.getElementById("d1");
+            var delNode = document.getElementsByClassName("delNode");
+            // parentNode.innerHTML = "";
+            var cnt = delNode.length;
+            for (var i = 0; i < cnt; i++) {
+                delNode[0].remove();
+            }
+        }
+        function func7(obj) {
+            obj.remove();
+        }
+        var delCount = 0;
+        function func8() {
+            var arr = new Array();
+            //1. 요소노드 생성
+            var p = document.createElement("p");    //p태그생성
+            //2. 텍스트노드 생성
+            var content = document.createTextNode("삭제테스트_" + (delCount++));
+            //3. 요소노드에 텍스트노드 추가
+            p.appendChild(content);
+            //4. 요소노드에 onclick 이벤트 추가
+            arr.push(p);
+            p.onclick = function () {
+                p.remove();
+            }
+            // p.setAttribute("onclick", func7(this));
+            //5. d1에 요소노드 추가
+            var d1 = document.getElementById("d1");
+            d1.appendChild(p);
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>DOM</h1>
+    <hr>
+    <button onclick="func1()">DOM생성해서 추가하기1</button>
+    <button onclick="func2()">DOM생성해서 추가하기2</button>
+    <button onclick="func3()">삭제용 노드 추가하기2</button>
+    <button onclick="func4()">자기 자신 삭제하기</button>
+    <button onclick="func5()">부모에서 삭제하기</button>
+    <button onclick="func6()">삭제용 노드 전체 삭제하기</button>
+    <button onclick="func8()">클릭하면 삭제되는 DOM 추가</button>
+    <div id="d1"></div>
+    <p onclick="func7(this);">삭제용_1</p>
+    <p onclick="func7(this);">삭제용_2</p>
+    <p onclick="func7(this);">삭제용_3</p>
+    <div onclick="func7(this);">삭제용_4</div>
+</body>
+
+</html>

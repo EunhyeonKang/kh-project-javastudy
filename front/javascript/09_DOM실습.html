@@ -1,0 +1,113 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            width: 100px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function exam1() {
+            var table1 = document.getElementById("exam1");
+            var tbody1 = document.createElement("tbody");
+            var tr1 = document.createElement("tr");
+            var th1 = document.createElement("th");
+            var th2 = document.createElement("th");
+            var th3 = document.createElement("th");
+            var name = prompt("학생이름 입력");
+            var age = prompt("학생 나이 입력");
+            var addr = prompt("주소 입력");
+            var students = { name: name, age: age, addr: addr };
+            th1.innerHTML = students.name;
+            th2.innerHTML = students.age;
+            th3.innerHTML = students.addr;
+            table1.appendChild(tbody1);
+            tbody1.appendChild(tr1);
+            tr1.appendChild(th1);
+            tr1.appendChild(th2);
+            tr1.appendChild(th3);
+        }
+        var delCount = 0;
+        function exam2() {
+            var table1 = document.getElementById("exam2");
+            var tbody1 = document.createElement("tbody");
+            var tr1 = document.createElement("tr");
+            var num1 = document.createElement("th");
+            var th1 = document.createElement("th");
+            var th2 = document.createElement("th");
+            var th3 = document.createElement("th");
+            var th4 = document.createElement("th");
+            var th5 = document.createElement("button");
+
+            var num = delCount++;
+            tbody1.setAttribute("id", "tbody" + delCount);
+
+            var name = prompt("학생이름 입력");
+            var age = prompt("학생 나이 입력");
+            var addr = prompt("주소 입력");
+            num1.innerHTML = num;
+            th1.innerHTML = name;
+            th2.innerHTML = age;
+            th3.innerHTML = addr;
+            th5.innerHTML = "삭제하기";
+            table1.appendChild(tbody1);
+            tbody1.appendChild(tr1);
+            tr1.appendChild(num1);
+            tr1.appendChild(th1);
+            tr1.appendChild(th2);
+            tr1.appendChild(th3);
+            tr1.appendChild(th4);
+            th4.appendChild(th5);
+            var tmp = document.getElementById("tbody" + num);
+            th4.setAttribute("onclick", "delFunc(" + delCount + ")");
+        }
+        function delFunc(obj) {
+            var tbodyTmp = document.getElementById("tbody" + obj);
+            tbodyTmp.remove();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>DOM 실습</h1>
+    <hr>
+    <h3>문제1. 추가 버튼을 클릭하면 prompt를 이용하여 이름,나이,주소를 입력받은 후 테이블에 추가</h3>
+    <table id="exam1">
+        <tbody>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="exam1();">추가하기</button>
+    <hr>
+    <br><br>
+    <h3>문제2. 추가 버튼을 클릭하면 prompt를 이용하여 이름,나이,주소를 입력받은 후 테이블에 추가하며 삭제버튼을 함께 추가</h3>
+    <table id="exam2">
+        <tbody>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+                <th>삭제</th>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="exam2();">추가하기</button>
+
+</body>
+
+</html>
