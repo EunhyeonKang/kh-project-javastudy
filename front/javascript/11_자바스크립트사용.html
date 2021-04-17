@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .agree {
+            border: 1px solid black;
+            width: 300px;
+            height: 150px;
+        }
+
+        .emailWrap>* {
+            border: 1px solid #3e3e3e;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        .slideImg {
+            transition-duration: 1s;
+            width: 500px;
+            height: 300px;
+            float: left;
+        }
+
+        .imgWrap {
+            width: 1500px;
+            overflow: hidden;
+        }
+
+        .slideWrap {
+            width: 500px;
+
+            overflow: hidden;
+        }
+
+        .slideWrap>button {
+            border: none;
+            background-color: darkturquoise;
+            width: 100px;
+            height: 30px;
+            font-weight: bold;
+            font-size: 1.3em;
+            outline: none;
+        }
+
+        .slideImg>button:disabled {
+            background-color: #3e3e3e;
+        }
+
+        #prev {
+            float: left;
+        }
+
+        #next {
+            float: right;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var allCheck = document.getElementById("allCheck");
+            allCheck.addEventListener("click", function () {
+                var agree = document.getElementsByName("agree");
+                var status = allCheck.checked;
+                for (var i = 0; i < agree.length; i++) {
+                    agree[i].checked = status;
+                }
+            });
+        }
+        window.onload = function () {
+            var selectMail = document.getElementById("selectMail");
+            selectMail.addEventListener("change", function () {
+                var email2 = document.getElementsByName("email2");
+                email2[0].value = selectMail.value;
+            })
+            buttonActive();
+        }
+        var currentPage = 0;
+        function next() {
+            currentPage++;
+            changeImg();
+            buttonActive();
+        }
+        function prev() {
+            currentPage--;
+            changeImg();
+            buttonActive();
+        }
+        function buttonActive() {
+            var next = document.getElementById("next");
+            var prev = document.getElementById("prev");
+            next.disabled = false;
+            prev.disabled = false;
+            if (currentPage == 0) {
+                prev.disabled = true;
+            } else if (currentPage == 2) {
+                next.disabled = true;
+            }
+        }
+        function changeImg() {
+            var moveImg = 500 * currentPage * -1;
+            var prev = document.getElementById("prev");
+            var slideImg = document.getElementsByClassName("slideImg");
+            for (var i = 0; i < slideImg.length; i++) {
+                slideImg[i].style.transform = "translateX(" + moveImg + "px)";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>1. 체크박스 전체 체크</h2>
+    <div class="checkWrap">
+        <input type="checkbox" id="allCheck"><label for="allCheck">전체체크</label>
+        <p class="agree">
+            개인정보는 매우 중요한 정보니까 저희가 조심스럽게 팔아먹을게요.<br>
+            개인정보는 매우 중요한 정보니까 저희가 조심스럽게 팔아먹을게요.<br>
+            개인정보는 매우 중요한 정보니까 저희가 조심스럽게 팔아먹을게요.<br>
+        </p>
+        <input type="checkbox" name="agree" id="privacy">
+        <label for="privacy">개인정보 처리방침 동의</label>
+        <p class="agree">
+            가입은 맘대로 가능하지만 탈퇴는 아닙니다. 동의하실꺼죠?<br>
+            가입은 맘대로 가능하지만 탈퇴는 아닙니다. 동의하실꺼죠?<br>
+            가입은 맘대로 가능하지만 탈퇴는 아닙니다. 동의하실꺼죠?<br>
+        </p>
+
+        <input type="checkbox" name="agree" id="join">
+        <label for="join">회원가입약간동의</label>
+    </div>
+    <hr>
+    <h2>2. 이메일 입력</h2>
+    <div class="emailWrap">
+        <input type="text" name="email1">
+        @
+        <input type="text" name="email2">
+        <select id="selectMail">
+            <option value="">직접입력</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="naver.com">naver.com</option>
+            <option value="iei.or.kr">iei.or.kr</option>
+        </select>
+    </div>
+    <hr>
+    <h3>3. 이미지 슬라이드</h3>
+    <div class="slideWrap">
+        <div class="imgWrap">
+            <img src="img/smile.jpg" class="slideImg">
+            <img src="img/angel.png" class="slideImg">
+        </div>
+        <button id="prev" onclick="prev();">prev</button>
+        <button id="next" onclick="next();">next</button>
+    </div>
+</body>
+
+</html>

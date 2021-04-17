@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            console.log("인라인이벤트 설정!");
+        }
+        window.onload = function () {
+            //여러태기를 넣을때 고전이벤트가 편함
+            var btn1 = document.getElementById("btn1");
+            btn1.onclick = function () {
+                console.log("고전 이벤트 설정!!");
+            }
+            var btn2 = document.getElementById("btn2");
+            btn2.addEventListener("click", function () {
+                console.log("표준 이벤트 모델");
+            })
+            var btn = document.getElementsByClassName("btn");
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].addEventListener("click", function () {
+                    console.log(this.innerHTML);
+                });
+            }
+        }
+        function func2() {
+            var bool = confirm("네이버로 이동할까요?");
+            if (bool) {
+                location.href = "http://www.naver.com";
+            }
+        }
+        var members = ['user01', 'user02', 'user03']; //테스트용 중복아이디
+        function checkValue() {
+            var id = document.getElementById("id");
+            var pw = document.getElementById("pw");
+            var pwRe = document.getElementById("pwRe");
+            var idCheck = members.indexOf(id.value);
+            var idChk = true;
+            if (idCheck == -1) {
+                id.style.border = "1px solid green";
+            } else {
+                id.style.border = "1px solid red";
+                idChk = false;
+            }
+            var pwChk = true;
+            if (pw.value == pwRe.value) {
+                pw.style.border = "1px solid greed";
+                pwRe.style.border = "1px solid greed";
+            } else {
+                pw.style.border = "1px solid red";
+                pwRe.style.border = "1px solid red";
+                pwChk = false;
+            }
+            if (idChk && pwChk) {
+                //아이디가 중복되지 않고, 비밀번호가 일치하는 경우
+            } else {
+                return false;
+            }
+        }
+        function func3(color) {
+            alert(color);
+            var event = window.event;
+            event.stopPropagation();    //이벤트 전달을 방지
+        }
+
+    </script>
+    <style>
+        .divs {
+            padding: 30px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>이벤트</h1>
+    <hr>
+    <h2>이벤트 : 웹페이지에서 어떠한 행위(사용자의 행동)가 발생한 것</h2>
+    <hr>
+    <h2>이벤트 설정 방법</h2>
+    <h3>1. 인라인 이벤트 모델 : 요소 내부에 이벤트를 작성하는 방법</h3>
+    <h3>2. 고전이벤트 모델 : 요소 객체가 가지고있는 속성 값에 이벤트 핸들러를 연결하는 방법</h3>
+    <h3>3. 표준이벤트 모델 : W3C(웹표준기관)에서 공식적으로 지정한 이벤트 설정 방법</h3>
+    <button onclick="func1();">인라인 이벤트 모델</button>
+    <button id="btn1">고전이벤트모델</button>
+    <button id="btn2">표준이벤트모델</button>
+    <button class="btn">표준이벤트 테스트1</button>
+    <button class="btn">표준이벤트 테스트2</button>
+    <button class="btn">표준이벤트 테스트3</button>
+    <button class="btn">표준이벤트 테스트4</button>
+    <button class="btn">표준이벤트 테스트5</button>
+    <hr>
+    <h2>기본이벤트 제거</h2>
+    <a href="javascript:void(0);" onclick="func2();">네이버로 이동</a>
+    <fieldset>
+        <legend>회원가입</legend>
+        <form action="test.html" method="get">
+            아이디 : <input type="text" name="id" id="id"><br>
+            비밀번호 : <input type="password" name="pw" id="pw"><br>
+            비밀번호확인 : <input type="password" name="pwRe" id="pwRe"><br>
+            <input type="submit" value="회원가입" onclick="return checkValue();">
+        </form>
+    </fieldset>
+    <hr>
+    <h2>이벤트버블링 : 자식노드에서 발생한 이벤트가 부모노드 이벤트로 전달되는 현상</h2>
+    <div onclick="func3('red')" class="divs red">
+        <div onclick="func3('blue')" class="divs blue">
+            <div onclick="func3('yellow')" class="divs yellow">
+                <div onclick="func3('green')" class="divs green"></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <fieldset>
+        <legend>회원가입2</legend>
+        <form action="join2.html">
+            아이디 : <input type="text" name="id2" id="id2"><span id="idChkMsg"></span><br>
+            비밀번호 : <input type="password" name="pw" id="pw2"><br>
+            비밀번호 확인 : <input type="password" name="pwRe2" id="pwRe2" onchange="pwChk();"><span id="pwChkMsg"></span><br>
+            이름 : <input type="text" name="name2" id="name2"><br>
+            성별 :
+            <input type="radio" name="gender2" value="남">남자
+            <input type="radio" name="gender2" value="여" checked>여자
+            <br>
+            <input type="submit" value="회원가입" onclick="return checkJoin();">
+        </form>
+    </fieldset>
+    <script>
+        var pwChk1 = false;
+        var idChk1 = false;
+        function checkJoin() {
+            // if (!(idChk1 && pwChk1)) {
+            //     return false;
+            // }
+            // if (!idChk1) {
+            //     alert("아이디 확인해주세요");
+            //     return false;
+            // } else if (!pwChk1) {
+            //     alert("비밀번호 확인해주세요");
+            //     return false;
+            // }
+            var radio = document.getElementsByName("gender2");
+            // console.log(radio[1].checked);
+            var count = 0;
+            for (var i = 0; i < radio.length; i++) {
+                if (radio[i].checked == true) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                alert("성별을 선택해주세요");
+                return false;
+            }
+        }
+        function pwChk() {
+            var pw2 = document.getElementById("pw2");
+            var pwRe2 = document.getElementById("pwRe2");
+            var pwChkMsg = document.getElementById("pwChkMsg");
+            if (pw2.value == pwRe2.value) {
+                pwChkMsg.innerHTML = "비밀번호가 일치합니다.";
+                pwChkMsg.style.color = "blue";
+                pwChk1 = true;
+            } else {
+                pwChkMsg.innerHTML = "비밀번호가 일치하지 않습니다..";
+                pwChkMsg.style.color = "red";
+            }
+        }
+        var users = ['user01', 'user02', 'user03'];
+        var id2 = document.getElementById("id2");
+        id2.addEventListener("change", function () {
+            var idChk = users.indexOf(id2.value);
+            var idChkMsg = document.getElementById("idChkMsg");
+            if (idChk == -1) {
+                idChkMsg.innerHTML = "사용 가능한 아이디 입니다.";
+                idChkMsg.style.color = "blue";
+                id2.style.border = "1px solid blue";
+                idChk1 = true;
+            } else {
+                idChkMsg.innerHTML = "이미 사용중인 아이디 입니다.";
+                idChkMsg.style.color = "blue";
+                id2.style.border = "1px solid red";
+                id2.style.border = "1px solid red";
+            }
+        })
+    </script>
+
+</html>
