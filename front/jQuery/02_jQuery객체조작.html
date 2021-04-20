@@ -5,6 +5,189 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제이쿼리 객체조작</title>
+    <style>
+        .text-red{
+            color :red;
+
+        }
+        .bg-yellow{
+            background-color: yellow;
+        }
+        #test4{
+            overflow: hidden;
+        }
+        .d3{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+        .d4{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        function func1(){
+            var test1 = $('#test1>div');
+            test1.each(function(index,item){
+                console.log(index + " : "  + $(item).html());
+                if($(item).is('.d1')){
+                    $(item).css('color','red');
+                }else if($(item).is('.d2')){
+                    $(item).css('color','blue');
+                }else{
+                    $(item).css('color','green');
+                }
+
+            });
+            /*
+            $.each(test1,function(index,item){
+
+            });
+            */
+        }
+        $(function(){
+            $("#btn4").click(function(){
+                var label = $('#test3>label');
+                label.eq(0).attr('for','java');
+                label.eq(0).attr('for','oracle');
+            });
+
+
+            $("#btn2").click(function(){
+                var test2 = $("#test2").children();
+                test2.eq(1).addClass("text-red");
+                test2.eq(2).addClass('bg-yellow');
+                test2.last().addClass('bg-yellow text-red');
+                test2.first().addClass('text-red').addClass('bg-yellow');
+            });
+
+            $('#btn3').click(function(){ //클래스 추가삭제
+                var test2 = $('#test2').children();
+                test2.removeClass('text-red');
+            });
+
+
+            $('#btn5').click(function(){
+                var label = $('#test3>label');
+                console.log(label.eq(0).attr('for'));
+                console.log(label.eq(1).attr('for'));
+
+
+                label.eq(0).removeAttr('for');
+                label.eq(1).removeAttr('for');
+
+            });
+            $('#btn6').click(function(){
+                var checkbox = $('#test3>input');
+                checkbox.prop('checked',true);
+                /*
+                for(var i=0;i<checkbox.length;i++){
+                    checkbox.eq(i).prop('checked',true);
+                } 
+                */           
+            });
+
+            $('#btn7').click(function(){
+                var checkbox = $('#test3>input');
+                checkbox.prop('checked',false);
+                //보통 리무브prop를 쓰기보다는 prop를 true false조절하는 편 
+            });
+
+            $('#btn8').click(function(){
+                var div = $('#test4>div');
+                console.log(div.eq(0).css('background-color'));//red
+                console.log(div.eq(1).css('background-color'));//red
+                div.eq(0).css('border','1px solid black');
+                div.eq(0).css('background-color','yellow');
+                div.eq(1).css('background-color','green').css('border','1px solid black');
+                div.eq(1).css({ //중괄호 {} 는 객체타입으로도 가능 
+                    'float':'none',
+                    'clear':'left',
+                    'background-color':'white'
+                });
+
+            
+            });
+
+
+
+            $('#btn9').click(function(){
+                var h1 = $('#test5>h1');
+                console.log(h1.html());
+                h1.html('test'); // p태그도 사라지면서 test로 바뀜
+            });
+            $('#btn10').click(function(){
+                var h1 = $('#test5>h1');
+                console.log(h1.text());
+                h1.text('test'); // p태그도 사라지면서 test로 바뀜
+            });
+            
+            $("#btn11").click(function(){
+                var input = $("#test5>input");
+                console.log(input.val());
+                input.val('이게바뀜');
+            });
+            $('#btn12').click(function(){
+                var test6 = $('#test6');
+                var appendHtml = "<p>test-7</p>";
+                test6.append(appendHtml); //실행되면 마지막 자식으로ㅓ 추가됨 
+            
+                //append와 동일한 구문
+                //$(appendHTML).appendTO(test6);
+            
+            
+            });
+
+            $("#btn13").click(function(){  //첫번째로 추가
+                var test6 = $("#test6");
+                var appendHtml = "<p>test-0</p>";
+                test6.prepend(appendHtml);
+            });
+
+            $('#btn14').click(function(){
+                var p = $("#test6>p").eq(3);
+                console.log(p.html());
+                var appendHtml = "<p>test-4</p>";
+                p.after(appendHtml);
+            })
+
+            $('#btn15').click(function(){
+                var p = $("#test6>p").eq(6);
+                console.log(p.html());
+                var appendHtml = "<p>test-5</p>";
+                p.before(appendHtml); //이전에추가
+            })
+
+
+            $("#btn16").click(function(){
+                var test8 = $("#test8");
+                var h2 = $('#test7>h2');
+                test8.append(h2);
+            });
+
+            $("#btn17").click(function(){
+                var test8 = $("#test8");
+                var h2 = $('#test7>h2').clone();
+                test8.append(h2);
+            });
+
+            $('#btn18').click(function(){
+                var removeP = $('#test9>p').eq(2);
+                removeP.remove();
+
+            });
+
+            $('#btn19').click(function(){
+                var test9 = $('#test9');
+                test9.empty();
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>객체조작</h1>
@@ -25,5 +208,92 @@
         <div>test-5</div>
     </div>
     <button onclick="func1();">확인</button>
+    <hr>
+    <h3>2. addClass(), removeClass() : 엘리먼트에 클래스를 추가 /삭제하는 메소드</h3>
+    <p>클래스를 통해서 css를 작성한 후 적용하소 취소할때 주로 사용 </p>
+    <div id="test2">
+        <div>test-1</div>
+        <div>test-2</div>
+        <div>test-3</div>
+        <div>test-4</div>
+        <div>test-5</div>
+    </div>
+    <button id="btn2">addClass</button>
+    <button id="btn3">removeClass</button>
+    <hr>
+    <h3>attr(), removeAttr(), prop(), removeProp() : 엘리먼트의 속성값을 확인하거나 추가/삭제하는 메소드</h3>
+    <div id="test3">
+        <input type="checkbox" name="study" value="java" id="java"><lable>java</lable>
+        <input type="checkbox" name="study" value="oracle" id="oracle"><lable>oracle</lable>
+    </div>
+    <button id="btn4">attr</button>
+    <button id="btn5">removeAttr</button>
+    <button id="btn6">prop</button>
+    <button id="btn7">removeProp</button>
+
+    <hr>
+    <h3>4. css() : 선택된  요소의 css속성값을 가져오거나 설정하는 메소드</h3>
+    <div id="test4">
+        <div class="d3"></div>
+        <div class="d4"></div>
+    </div>
+
+    <button id="btn8">css</button>
+    <hr>
+    <h3>5. html() , text() , val() </h3>
+    <p> html() : 선택된 요소의 컨텐츠 영역(innerHTML)을 가져오거나 수정할때 사용</p>
+    <p>text() : 선택된 요소의 컨텐츠영역(innerHTML)을 가져오거나 수정할때 사용
+        태그가 있다면 태그는 가져오지 않음 -> html과의 차이점  </p>
+    <p>val() : 선택된 요소의 value를 가지고오거나 수정</p>
+    <div id="test5">
+        <h1><p>안녕!</p></h1>
+        <input type="text" name="name">
+    </div>
+    <button id="btn9">html</button>
+    <button id="btn10">text</button>
+    <button id="btn11">val</button>
+
+    <hr>
+    <h3>6. append(), prepend(), after(), before() : 문서 객체를 특정 위치에 삽입하는 메소드</h3>
+    <p>문서 객체 생성은 문자열로 생성</p>
+    <p>동일한 기능을 가진 appendTo(), prependTo(), insertAfter(), insertBefore()도 존재하며
+        삽입할 위치와 객체의 순서만 바뀜
+    </p>
+    <div id="'test6">
+        <p>test-1</p>
+        <p>test-2</p>
+        <p>test-3</p>
+        <p>test-6</p>
+    </div>
+    <button id="btn12">append</button>
+    <button id="btn13">prepend</button>
+    <button id="btn14">after</button>
+    <button id="btn15">before</button>
+
+    <br><br><br><br><br>
+    <hr>
+    <h3>7. 문서객체 이동 및 복사</h3>
+    <p>선택자로 선택해서 append하는 경우 기존 엘리먼트가 이동</p>
+    <p>기존 엘리먼트를 유지하고 복사해서 옮기는 경우 clone()사용</p>
+    <div id="test7">
+        <h2>h2</h2>
+        <h3>h3</h3>
+    </div>
+    <div id="test8"></div>
+    <button id="btn16">문서객체 이동</button>
+    <button id="btn17">문서객체 복사</button>
+    <hr>
+    <h3>8. 문서객체 삭제 : remove() , empty()</h3>
+
+    <div id="test9">
+        <p>remove-1</p>
+        <p>remove-2</p>
+        <p>remove-3</p>
+        <p>remove-4</p>
+        <p>remove-5</p>
+    </div>
+    <button id="btn18">remove</button>
+    <button id="btn19">empty</button>
 </body>
 </html>
+

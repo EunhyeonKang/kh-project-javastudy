@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <title>제이쿼리 이벤트</title>
+    <style>
+        #frm>input{
+            border : none;
+            outline : none; /*인풋에 클릭하면 껌정색 진한 네모 없앤거임 */
+            border-bottom: 1px solid lightgray;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                $('#test1').append("<div class='d1'> test-3 </div>");
+            });
+            $(document).on('click','d1',function(){ // 전체 에다가 걸어주는것
+                console.log($(this).html());
+            });
+
+            /*
+            $('#btn2').click(function(){
+                $('.d1').on("click",function(){
+                    console.log($(this).html());
+                });
+            });
+            $("#btn3").click(function(){
+                $(".d1").off("click");
+            });
+            */
+           $(".levelup>button").not('#allLevelup').click(function(){
+                var level =  $(this).next();
+                var currentLevel = Number(level.html());
+                level.html(currentLevel+1);
+           });
+
+            $("#allLevelup").click(function(){
+                $(".levelup>button").not('#allLevelup').click();
+
+
+
+
+                /*
+                var span = $(".levelup>span");
+                span.each(function(index,item){
+                    var currentLevel = Number($(item).html());
+                    $(item).html(currentLevel+1);
+                });
+                */
+            });
+
+            $("#click").click(function(){
+                $(this).css("color","blue");
+            });
+
+            $("#dblclick").dblclick(function(){
+                $(this).css('color','red');
+            });
+
+            $("#mouse").mousedown(function(){
+                $(this).css('color','red');
+            });
+            $('#mouse').mouseup(function(){
+                $(this).css('color','black');
+            });
+            $('#mouse').mouseover(function(){
+                $(this).css("background-color",'yellow');
+            })
+            $('#mouse').mouseleave(function(){
+                $(this).css('background-color','transparent');
+            });
+
+            $(document).mousemove(function(event){ // 전체에 줘야하는거라  도큐먼트에 걸어주고 function에 이벤트를 매게변수로 줘야함 
+                $('#mouseposition').html(event.pageX+","+event.pageY);
+            });
+
+            $('#input1').focusin(function(){
+                $(this).css('border-bottom','1px solid black');
+            });
+            $('#input1').focusout(function(){
+                $(this).css('border-bottom','1px solid lightgray');
+            });
+
+            $("#input2").change(function(){
+                console.log("input2 값이 변경됨");
+            });
+
+            $("[name=test1]").change(function(){
+                console.log($(this).val());
+            });
+
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery 이벤트</h1>
+    <hr>
+    <h2>이벤트 연결방법</h2>
+    <h3>1. 인라인방식(javascript와 동일)</h3>
+    <h3>2. $('선택자').이벤트명(function(){})</h3>
+    <h3>3. $('선택자').on(이벤트명,function(){})</h3>
+
+    <div id="test1">
+        <div class="d1">test-1</div>
+        <div class="d1">test-2</div>
+    </div>
+    <button id="btn1">클릭</button>
+    <button id="btn2">on</button>
+    <button id="btn3">off</button>
+    <hr>
+    <h2>이벤트 강제실행</h2>
+    <div class="levelup">
+        <button>레벨업</button> HTML : <span>0</span> Level<br>
+        <button>레벨업</button> CSS : <span>0</span> Level<br>
+        <button>레벨업</button> Javascript : <span>0</span> Level<br>
+        <button>레벨업</button> jQuery : <span>0</span> Level<br>
+        <button id="allLevelup">전체레벨업</button>
+    </div>
+    <hr>
+    <h1>마우스이벤트</h1>
+    <p id="click">클릭</p>
+    <p id="dblclick">더블클릭</p>
+    <p id="mouse">마우스</p>
+    <div>현재 마우스 위치 : <span id="mouseposition"></span></div>
+    <hr>
+    <h2>입력양식이벤트</h2>
+    <form action="/test.html" id="frm" method="post">
+        입력 1 : <input type="text" id="input1"><br>
+        입력 2 : <input type="text" id="input2"><br>
+        <input type="radio" name="test1" value="1">1
+        <input type="radio" name="test1" value="2">2 <br>
+        <input type="submit" value="제출하기">
+    </form>
+</body>
+</html>
