@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <title>05_유효성검사</title>
+    <style>
+        #result{
+            border: 3px solid red;
+            width: 300px;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                var val = $("#text").val();
+                var regExp;
+                //1. a가 포함되어 있으면
+                //regExp = /a/;
+                //2. afh 시작하면
+                //regExp = /^a/;
+                //3. a 또는 b가 포함되어 있으면
+                //regExp = /[ab]/;
+                //4. a 또는 b로 시작하면
+                //regExp = /^[ab]/;
+                //5. a로 끝난다면
+                //regExp = /a$/;
+                //6. a 또는 b로 끝난다면
+                //regExp = /[ab]$/;
+                //7. a로 시작해서 b로 끝나면
+                //regExp = /^a.+b$/;
+                //8. 숫자만 입력하고 싶은 경우(1글자 이상)
+                //regExp = /^[\d]+$/;
+                //regExp = /^[\d]{1,}/;
+                //9. 영어 대소문자만 입력해야 하는 경우
+                //regExp = /^[a-zA-Z]+$/;
+                //10. 영어 대소문자 숫자만 입력해야 하는 경우
+                //regExp = /^[\w]+$/;
+                //11. 한글만 입력해야 하는 경우
+                //regExp = /^[가-힣ㄱ-하-ㅣ]+$/;//정상적인 한글 : /^[가-힣]+$/
+                //12. 영어 대소문자 3~5글자
+                //regExp = /^[a-zA-Z]{3,5}$/;
+                //13. 한글 3~5글자
+                //regExp = /^[가-힣]{3,5}$/;
+                //14. 영어 대소문자+숫자 8~12글자, 시작은 영어 소문자만
+                //regExp = /^[a-z][\w]{7,11}$/;
+
+
+                if(regExp.test(val)){
+                    $("#result").html("정규표현식 만족");
+                }else{
+                    $("#result").html("정규표현식 실패 패턴을 확인하세요");
+                }
+            });
+        });
+        function checkValue(){
+            /*
+            //1. 아이디 검사 : 영어 대/소문자+숫자 4~12글자
+            var idReg = /^[\w]{4,12}$/; ///^[a-zA-Z0-9]{4,12}$/
+            var id = $("[name=id]").val();
+            if(idReg.test(id)){
+                $("[name=id]").css("border","1px solid blue");
+                $("[name=id]").after("<span>사용 가능한 아이디입니다.</span>");
+            }else{
+                $("[name=id]").css("border","1px solid red");
+                $("[name=id]").after("<span>아이디는 영어 대/소문자/숫자로 4~12글자입니다.</span>");
+                return false;
+            }
+            */
+            //2. 비밀번호 : 영어 대/소문자+숫자 8~16글자
+            var pwReg = /^[\w]{8,16}$/;
+            var pw = $("[name=pw]").val();
+            if(pwReg.test(pw)){
+                $("[name=pw]").css("border","1px solid blue");
+                $("[name=pw]").after("<span>비밀번호 입력 완료</span>");
+            }else{
+                $("[name=pw]").css("border","1px solid red");
+                $("[name=pw]").after("<span>비밀번호는 영어 대/소문자/숫자로 8~16글자입니다.</span>");
+                return false;
+            }
+            //3. 비밀번호 확인 : 비밀번호와 같은지
+            if($("[name=pw]").val() == $("[name=pw_re]").val()){
+                $("[name=pw]").css("border","1px solid blue");
+                $("[name=pw]").after("<span>비밀번호 확인 완료</span>");
+            }else{
+                $("[name=pw]").css("border","1px solid red");
+                $("[name=pw]").after("<span>비밀번호가 일치하지 않습니다.</span>");
+                return false;
+            }
+            //4. 이름 : 한글 2~5글자
+            var nameReg = /^[가-힣]{2,5}$/;
+            var name = $("[name=name]").val();
+            if(nameReg.test(name)){
+                $("[name=name]").css("border","1px solid blue");
+                $("[name=name]").after("<span>이름 입력 완료</span>");
+            }else{
+                $("[name=name]").css("border","1px solid red");
+                $("[name=name]").after("<span>이름은 한글로 2~5글자입니다.</span>");
+                return false;
+            }
+            //5. 주소 : 비어있지 않은 값으로
+            /*
+            var addr = $("[name=addr]").val();
+            if(addr != ""){//addr 값이 비어있지 않을 때
+                $("[name=addr]").css("border","1px solid blue");
+                $("[name=addr]").after("<span>주소 입력 완료</span>");
+            }else{
+                $("[name=addr]").css("border","1px solid red");
+                $("[name=addr]").after("<span>주소는 필수 입력 항목입니다.</span>");
+                return false;
+            }
+            */
+            
+            //6. 전화번호 : -없이사용, 010시작,숫자3~4자리,숫자4자리
+            var phoneReg = /^(010)[0-9]{3,4}[0-9]{4)$/;
+            var phone = $("[name=phone]").val();
+            if(phoneReg.test(phone)){
+                $("[name=phone]").css("border","1px solid blue");
+                $("[name=phone]").after("<span>전화번호 입력 완료</span>");
+            }else{
+                $("[name=phone]").css("border","1px solid red");
+                $("[name=phone]").after("<span>전화번호를 확인하세요</span>");
+                return false;
+            }
+        }
+        $(function(){
+            $("[name=id]").keyup(function(){
+                var idReg = /^[\w]{4,12}$/; ///^[a-zA-Z0-9]{4,12}$/
+                var id = $(this).val();
+                $(this).next().html("");
+                if(idReg.test(id)){
+                    $(this).css("border","1px solid blue");
+                    $(this).next().html("<span>사용 가능한 아이디입니다.</span>");
+                }else{
+                    $(this).css("border","1px solid red");
+                    $(this).next().html("아이디는 영어 대/소문자/숫자로 4~12글자입니다.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="text"><button id="btn">확인하기</button>
+    <p id="result"></p>
+    <hr>
+    <form action="/join.html" method="POST">
+        아이디 : <input type="text" name="id"><span></span><br>
+        비밀번호 : <input type="password" name="pw"><br>
+        비밀번호 확인: <input type="password" name="pw_re"><br>
+        이름 : <input type="text" name="name"><br>
+        주소 : <input type="text" name="addr" required><br> <!-- required : 필수 입력 항목-->
+        전화번호 : <input type="text" name="phone" placeholder="-빼고 입력해 주세요."><br>
+        <input type="submit" value="회원가입" onclick="return checkValue();">
+        <input type="reset" value="취소">
+    </form>
+</body>
+</html>
