@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>회원가입</legend>
+        <form action="/memberJoin.do" name="form" methods="post" onclick="return checkAll()">
+            아이디 : <input type=" text" id="userId" name="userId" placeholder="아이디를 입력하세요"><br>
+            비밀번호 : <input type="password" name="password1" placeholder="PW를 입력하세요"><br>
+            비밀번호확인 : <input type="password" name="password2" placeholder="PW를 입력하세요"><br>
+            회원 이름 : <input type="text" name="name" placeholder="이름을 입력하세요"><br>
+            성별 :
+            <input type="radio" checked>남
+            <input type="radio">여
+            <br><br><br>
+            <input type="submit" value="회원가입">
+            <input type="submit" value="취소">
+
+        </form>
+    </fieldset>
+    <script>
+        //공백확인함수
+        function checkExistData(value, dataName) {
+            if (value == "") {
+                alert(dataName + " 입력해주세요!");
+                return false;
+            }
+            return true;
+        }
+        function checkAll() {
+            if (!checkUserId(form.userId.value)) {
+                return false;
+            } else if (!checkPassword(form.userId.value, form.password1.value,
+                form.password2.value)) {
+                return false;
+            } else if (!checkName(form.name.value)) {
+                return false;
+            }
+            return true;
+        }
+
+        function checkUserId(id) {
+            //Id가 입력되었는지 확인하기
+
+
+            if (!checkExistData(id, "아이디를"))
+                return false;
+            var userId = document.getElementById("userId");
+            var idRegExp = /^[a-z]+[a-z0-9]{4,10}$/g; //아이디 유효성 검사
+            if (!idRegExp.test(id)) {
+                alert("아이디는 영문 대소문자와 숫자 4~10자리로 입력해야합니다!");
+                form.userId.value = "";
+                form.userId.focus();
+                return false;
+            }
+            return true; //확인이 완료되었을 때
+        }
+
+        function checkPassword(id, password1, password2) {
+            //비밀번호가 입력되었는지 확인하기
+            if (!checkExistData(password1, "비밀번호를"))
+                return false;
+            //비밀번호 확인이 입력되었는지 확인하기
+            if (!checkExistData(password2, "비밀번호 확인을"))
+                return false;
+
+            var password1RegExp = /^[a-zA-z0-9]{8,10}$/; //비밀번호 유효성 검사
+            if (!password1RegExp.test(password1)) {
+                alert("비밀번호는 영문 대소문자와 숫자 8~20자리로 입력해야합니다!");
+                form.password1.value = "";
+                form.password1.focus();
+                return false;
+            }
+            //비밀번호와 비밀번호 확인이 맞지 않다면..
+            if (password1 != password2) {
+                alert("두 비밀번호가 맞지 않습니다.");
+                form.password1.value = "";
+                form.password2.value = "";
+                form.password2.focus();
+                return false;
+            }
+
+            //아이디와 비밀번호가 같을 때..
+            if (id == password1) {
+                alert("아이디와 비밀번호는 같을 수 없습니다!");
+                form.password1.value = "";
+                form.password2.value = "";
+                form.password2.focus();
+                return false;
+            }
+            return true; //확인이 완료되었을 때
+        }
+
+        function checkName(name) {
+            if (!checkExistData(name, "이름을"))
+                return false;
+
+            var nameRegExp = /^[가-힣]{2,5}$/;
+            if (!nameRegExp.test(name)) {
+                alert("이름이 올바르지 않습니다.");
+                return false;
+            }
+            return true; //확인이 완료되었을 때
+        }
+
+    </script>
+</body>
+
+</html>
