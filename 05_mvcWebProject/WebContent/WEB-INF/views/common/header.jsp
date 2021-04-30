@@ -27,10 +27,10 @@
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="#">menu1</a>
+					<a class="nav-link" href="/noticeList?reqPage=1">공지사항</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">menu2</a>
+					<a class="nav-link" href="/boardList?reqPage=1">자유게시판</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">menu3</a>
