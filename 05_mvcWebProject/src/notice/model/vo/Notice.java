@@ -49,6 +49,9 @@ public class Notice {
 	public void setNoticeWriter(String noticeWriter) {
 		this.noticeWriter = noticeWriter;
 	}
+	public String getNoticeContentBr() {
+		return noticeContent.replace("\r\n", "<br>");
+	}
 	public String getNoticeContent() {
 		return noticeContent;
 	}

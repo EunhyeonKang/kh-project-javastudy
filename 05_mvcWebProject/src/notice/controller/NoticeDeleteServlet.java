@@ -1,5 +1,6 @@
 package notice.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -10,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.NoticePageData;
+import notice.model.vo.Notice;
 
 /**
- * Servlet implementation class NoticeListServlet
+ * Servlet implementation class NoticeDeleteServlet
  */
-@WebServlet(name = "NoticeList", urlPatterns = { "/noticeList" })
-public class NoticeListServlet extends HttpServlet {
+@WebServlet(name = "NoticeDelete", urlPatterns = { "/noticeDelete" })
+public class NoticeDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeListServlet() {
+    public NoticeDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,15 +35,27 @@ public class NoticeListServlet extends HttpServlet {
 		//1.인코딩
 		request.setCharacterEncoding("utf-8");
 		//2.값추출
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
-		//3.비즈니스로직 
-		NoticePageData npd = new NoticeService().selectNoticeList(reqPage);
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		//3.비지니스로직
+		NoticeService service = new NoticeService();
+		Notice n = service.selectOneNotice(noticeNo);
+		int result = new NoticeService().deleteNotice(noticeNo);
 		//4.결과처리
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp");
-		request.setAttribute("list", npd.getList());
-		request.setAttribute("pageNavi", npd.getPageNavi());
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>0) {
+			if(n.getFilepath()!=null) {//삭제한 공지사항이 첨부파일이 있는 경우
+				String root = getServletContext().getRealPath("/");
+				String file= root+"upload/notice/"+n.getFilepath();
+				File delFile = new File(file);
+				delFile.delete();
+			}
+			request.setAttribute("msg", "삭제성공");
+			request.setAttribute("loc", "/noticeList?reqPage=1");
+		}else {
+			request.setAttribute("msg", "삭제실패");
+			request.setAttribute("loc", "/noticeView?noticeNo="+noticeNo);
+		}
 		rd.forward(request, response);
-		
 	}
 
 	/**

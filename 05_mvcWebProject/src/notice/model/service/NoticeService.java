@@ -37,10 +37,10 @@ public class NoticeService {
 		//1~5페이지 요청시 페이지 네비 시작번호 : 1
 		//6~10페이지 요청하면 페이 네비 시작번호 : 6
 		//11~15페이지 요청하면 페이지 네비 시작번호 : 11 
+		//reqPage가 업로드??되는곳이 없는데 어떻게 6으로 바뀌엉ㅅ? reqPage는 어디서바뀌는거냐면
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
 		//페이지네비 시작
 		String pageNavi = "<ul class='pagination patination-lg'>";
-		//페이지 네비 시작번호가 1이 아닌경우는 이전버튼 생성
 		if(pageNo != 1) {
 			pageNavi += "<li class='page-item'>";
 			pageNavi += "<a class='page-link' href='/noticeList?reqPage="+(pageNo-1)+"'>&lt;</a></li>";
@@ -69,6 +69,49 @@ public class NoticeService {
 		JDBCTemplate.close(conn);
 		NoticePageData npd = new NoticePageData(list,pageNavi);
 		return npd;
+	}
+
+	public int insertNotice(Notice n) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new NoticeDao().insertNotice(conn,n);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public Notice selectOneNotice(int noticeNo) {
+		Connection conn =JDBCTemplate.getConnection();
+		Notice n = new NoticeDao().selectOneNotice(conn,noticeNo);
+		JDBCTemplate.close(conn);
+		return n;
+	}
+
+	public int deleteNotice(int noticeNo) {
+		Connection conn =JDBCTemplate.getConnection();
+		int result = new NoticeDao().deleteNotice(conn,noticeNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateNotice(Notice n) {
+		Connection conn =JDBCTemplate.getConnection();
+		int result = new NoticeDao().updateNotice(conn,n);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 }

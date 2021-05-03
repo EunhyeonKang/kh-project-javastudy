@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.NoticePageData;
+import notice.model.vo.Notice;
 
 /**
- * Servlet implementation class NoticeListServlet
+ * Servlet implementation class NoticeViewServlet
  */
-@WebServlet(name = "NoticeList", urlPatterns = { "/noticeList" })
-public class NoticeListServlet extends HttpServlet {
+@WebServlet(name = "NoticeView", urlPatterns = { "/noticeView" })
+public class NoticeViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeListServlet() {
+    public NoticeViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,15 +34,13 @@ public class NoticeListServlet extends HttpServlet {
 		//1.인코딩
 		request.setCharacterEncoding("utf-8");
 		//2.값추출
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
-		//3.비즈니스로직 
-		NoticePageData npd = new NoticeService().selectNoticeList(reqPage);
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		//3.비즈니스로직
+		Notice n = new NoticeService().selectOneNotice(noticeNo);
 		//4.결과처리
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp");
-		request.setAttribute("list", npd.getList());
-		request.setAttribute("pageNavi", npd.getPageNavi());
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeView.jsp");
+		request.setAttribute("n", n);
 		rd.forward(request, response);
-		
 	}
 
 	/**
