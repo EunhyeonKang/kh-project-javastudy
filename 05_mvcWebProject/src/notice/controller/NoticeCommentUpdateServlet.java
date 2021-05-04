@@ -10,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.NoticeViewData;
 
 /**
- * Servlet implementation class NoticeViewServlet
+ * Servlet implementation class NoticeCommentUpdateServlet
  */
-@WebServlet(name = "NoticeView", urlPatterns = { "/noticeView" })
-public class NoticeViewServlet extends HttpServlet {
+@WebServlet(name = "NoticeCommentUpdate", urlPatterns = { "/noticeCommentUpdate" })
+public class NoticeCommentUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeViewServlet() {
+    public NoticeCommentUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,13 +34,21 @@ public class NoticeViewServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		//2.값추출
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		int ncNo = Integer.parseInt(request.getParameter("ncNo"));
+		String ncContent = request.getParameter("ncContent");
 		//3.비즈니스로직
-		NoticeViewData nvd = new NoticeService().selectNoticeView(noticeNo);
+		int result = new NoticeService().updateNoticeComment(ncNo,ncContent);
 		//4.결과처리
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeView.jsp");
-		request.setAttribute("n", nvd.getN());
-		request.setAttribute("list", nvd.getList());
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>0) {
+			request.setAttribute("msg", "수정완료!!");
+		}else {
+			request.setAttribute("msg", "수정실패ㅠㅠ");
+		}
+		request.setAttribute("loc", "/noticeView?noticeNo="+noticeNo);
 		rd.forward(request, response);
+		
+		
 	}
 
 	/**

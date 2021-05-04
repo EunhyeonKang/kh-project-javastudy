@@ -1,4 +1,4 @@
-package notice.controller;
+package board.controller;
 
 import java.io.IOException;
 
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
-import notice.model.vo.NoticeViewData;
+import board.service.BoardService;
+import member.model.vo.BoardPageData;
 
 /**
- * Servlet implementation class NoticeViewServlet
+ * Servlet implementation class BoardListServlet
  */
-@WebServlet(name = "NoticeView", urlPatterns = { "/noticeView" })
-public class NoticeViewServlet extends HttpServlet {
+@WebServlet(name = "BoardList", urlPatterns = { "/boardList" })
+public class BoardListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeViewServlet() {
+    public BoardListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +31,18 @@ public class NoticeViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1.인코딩
+		//인코딩
 		request.setCharacterEncoding("utf-8");
-		//2.값추출
-		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-		//3.비즈니스로직
-		NoticeViewData nvd = new NoticeService().selectNoticeView(noticeNo);
-		//4.결과처리
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeView.jsp");
-		request.setAttribute("n", nvd.getN());
-		request.setAttribute("list", nvd.getList());
+		//값추출
+		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		//비즈니스로직
+		BoardPageData bpd = new BoardService().selectBoardList(reqPage);
+		//결과처리
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/board/boardList.jsp");
+		request.setAttribute("list", bpd.getList());
+		request.setAttribute("pageNavi", bpd.getPageNavi());
 		rd.forward(request, response);
+		
 	}
 
 	/**

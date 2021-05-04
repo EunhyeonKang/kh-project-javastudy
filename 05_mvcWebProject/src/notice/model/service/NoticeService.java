@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import common.JDBCTemplate;
 import notice.model.dao.NoticeDao;
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 import notice.model.vo.NoticePageData;
+import notice.model.vo.NoticeViewData;
 
 public class NoticeService {
 
@@ -85,11 +87,21 @@ public class NoticeService {
 
 	public Notice selectOneNotice(int noticeNo) {
 		Connection conn =JDBCTemplate.getConnection();
+		NoticeDao dao = new NoticeDao();
 		Notice n = new NoticeDao().selectOneNotice(conn,noticeNo);
 		JDBCTemplate.close(conn);
 		return n;
 	}
-
+	
+	public NoticeViewData selectNoticeView(int noticeNo) {
+		Connection conn =JDBCTemplate.getConnection();
+		NoticeDao dao = new NoticeDao();
+		Notice n = new NoticeDao().selectOneNotice(conn,noticeNo);
+		ArrayList<NoticeComment> list = dao.selectNoticeCommentList(conn,noticeNo);
+		JDBCTemplate.close(conn);
+		NoticeViewData nvd = new NoticeViewData(n,list);
+		return nvd;
+	}
 	public int deleteNotice(int noticeNo) {
 		Connection conn =JDBCTemplate.getConnection();
 		int result = new NoticeDao().deleteNotice(conn,noticeNo);
@@ -113,6 +125,44 @@ public class NoticeService {
 		JDBCTemplate.close(conn);
 		return result;
 	}
+
+	public int insertComment(NoticeComment nc) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new NoticeDao().insertComment(conn,nc);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateNoticeComment(int ncNo, String ncContent) {
+		Connection conn= JDBCTemplate.getConnection();
+		int result = new NoticeDao().updateNoticeComment(conn,ncNo, ncContent);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int deleteNoticeComment(int ncNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new NoticeDao().deleteNoticeComment(conn,ncNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	
 
 }
 
