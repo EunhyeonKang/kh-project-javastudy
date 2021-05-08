@@ -15,7 +15,7 @@
 		<form action="/join" method="post" name="joinFrm">
 			<legend>회원가입</legend>
 			<div class="form-group">
-				<label class="control-label" for="memberId" style="display:block">아이디</label>
+				<label class="control-label" for="memberId" style="display:block">아이디<span id="ajaxCheck"></span></label>
 				<input type="text" name="memberId" id="memberId" class="form-control" style="width:90%; display:inline-block;">
 				<button type="button" id="idChk" class="btn btn-secondary">중복체크	</button> 
 			</div>
@@ -52,6 +52,23 @@
 			//팝업창과 [name=checkIdFrm]인 form태그를 연결
 			$("[name=checkIdFrm]").attr("target","checkId");
 			$("[name=checkIdFrm]").submit();//폼태그 제출
+		});
+		$("[name=memberId]").eq(1).keyup(function(){
+			var memberId = $(this).val();
+			$.ajax({
+				url : "/ajaxIdCheck",
+				data : {memberId:memberId},
+				type : "post",
+				success : function(data){
+					if(data==1){
+						$("#ajaxCheck").html("이미 사용중인 아이디입니다.");
+						$("#ajaxCheck").css("color","red");
+					}else{
+						$("#ajaxCheck").html("사용 가능한 아이디입니다.");
+						$("#ajaxCheck").css("color","blue");
+					}
+				}
+			})
 		});
 	</script>
 </body>

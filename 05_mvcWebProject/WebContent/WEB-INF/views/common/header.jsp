@@ -33,7 +33,7 @@
 					<a class="nav-link" href="/boardList?reqPage=1">자유게시판</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">menu3</a>
+					<a class="nav-link" href="/photoList">사진게시판</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/view/ajax.jsp">AJAX</a>
@@ -42,11 +42,11 @@
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown"
 				href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu5</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item href="#">sub-1</a>
-					<a class="dropdown-item href="#">sub-2</a>
+					<a class="dropdown-item" href="/view/mail.jsp">메일API</a>
+					<a class="dropdown-item" href="#">sub-2</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item href="#">sub-3</a>
-					<a class="dropdown-item href="#">sub-4</a>
+					<a class="dropdown-item" href="#">sub-3</a>
+					<a class="dropdown-item" href="#">sub-4</a>
 				</div>
 				</li>
 			</ul>

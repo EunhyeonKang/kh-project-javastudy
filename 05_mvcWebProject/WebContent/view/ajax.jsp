@@ -47,6 +47,27 @@
 				<button class="btn btn-danger" id="jQ6">조회</button>
 				<p class="ajaxResult"></p>
 			</div>
+			<div>
+				<h3>7. 서버에서 맵타입 결과 받기</h3>
+				<button class="btn btn-danger" id = "jQ7">조회</button>
+				<p class="ajaxResult"></p>	
+			</div>
+			<div>
+				<h3>8. 서버에서 객체타입 결과 받기(GSON)</h3>
+				<input type="text" id="ajax8">
+				<button class="btn btn-danger" id = "jQ8">조회</button>
+				<p class="ajaxResult"></p>	
+			</div>
+			<div>
+				<h3>9. 서버에서 리스트타입 결과 받기(GSON)</h3>
+				<button class="btn btn-danger" id = "jQ9">조회</button>
+				<p class="ajaxResult"></p>	
+			</div>
+			<div>
+				<h3>10. 서버에서 맵타입 결과 받기(GSON)</h3>
+				<button class="btn btn-danger" id = "jQ10">조회</button>
+				<p class="ajaxResult"></p>	
+			</div>
 		</fieldset>
 	</div>
 	<script>
@@ -179,6 +200,83 @@
 					}else{
 						result.html("회원정보가 없습니다.");
 					}
+				}
+			})
+		})
+		$("#jQ7").click(function(){
+			var result = $(this).next();
+			$.ajax({
+				url : "/ajaxTest7",
+				type: "get",
+				success : function(data){
+					var html ="";
+					var keys = Object.keys(data); //객체의 키값들만 전부가져옴
+					
+					for(var i=0;i<keys.length;i++){
+						var memberNo = data[keys[i]].memberNo;
+						var memberName = decodeURIComponent(data[keys[i]].memberName);
+						var phone = data[keys[i]].phone;
+						html+="회원번호 : " +memberNo+" / 이름 : "+memberName + " / 전화번호 : "+phone+"<br>";
+						
+					}
+					result.html(html);
+				}
+			})
+		})
+		$("#jQ8").click(function(){
+			var memberId = $("#ajax8").val();
+			var result = $(this).next();
+			$.ajax({
+				url : "/ajaxTest8",
+				type: "get",
+				data: {memberId:memberId},
+				success : function(data){
+					if(data != null){
+						var memberNo = data.memberNo;
+						var memberName = data.memberName;
+						var phone = data.phone;
+						result.html("번호 : "+memberNo+" / 이름 : "+memberName+" / 전화번호 : "+phone);
+					}else{
+						result.html("회원정보가 없습니다.");
+					}
+				}
+			})
+		})
+		$("#jQ9").click(function(){
+			var result = $(this).next();
+			$.ajax({
+				url : "/ajaxTest9",
+				success : function(data){
+					/*console.log(data);*/
+					if(data.length!=0){
+						var html="";
+						for(var i=0;i<data.length;i++){
+							var memberNo = data[i].memberNo;
+							var memberName = data[i].memberName;
+							var phone = data[i].phone;
+							html+="회원번호 : " +memberNo+" / 이름 : "+memberName + " / 전화번호 : "+phone+"<br>";
+						}
+						result.html(html);
+					}else{
+						result.html("회원정보가 없습니다.");
+					}
+				}
+			})
+		})
+		$("#jQ10").click(function(){
+			var result = $(this).next();
+			$.ajax({
+				url : "/ajaxText10",
+				success : function(data){
+					var html = "";
+					//data객체에서 순서대로key값을 꺼내서 자동으로 for문 수행
+					for(var key in data){
+						var memberNo = data[key].memberNo;
+						var memberName = data[key].memberName;
+						var phone = data[key].phone;
+						html+="회원번호 : " +memberNo+" / 이름 : "+memberName + " / 전화번호 : "+phone+"<br>";
+					}
+					result.html(html);
 				}
 			})
 		})
