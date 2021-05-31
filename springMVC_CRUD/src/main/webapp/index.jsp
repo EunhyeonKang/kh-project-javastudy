@@ -37,6 +37,8 @@
 			<h3><a href="/notice.do">공지사항 목록</a></h3>
 			<h3><a href="/insertNoticeFrm.do">공지사항 작성</a></h3>
 			<h3><a href="/deleteMember.do?memberId=${sessionScope.m.memberId }">회원탈퇴</a></h3>
+			<h3><a href="/boardWriteFrm.do">게시판 글쓰기</a></h3>
+			<h3><a href="/boardList.do">게시판 목록</a></h3>
 		</c:otherwise>
 	</c:choose>
 </body>
