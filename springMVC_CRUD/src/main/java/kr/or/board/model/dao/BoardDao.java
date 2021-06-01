@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.or.board.model.vo.Board;
 import kr.or.board.model.vo.BoardRowMapper;
 import kr.or.board.model.vo.File;
+import kr.or.board.model.vo.FileRowMapper;
 import kr.or.notice.model.vo.NoticeRowMapper;
 
 @Repository
@@ -47,6 +48,13 @@ public class BoardDao {
 		String query="select * from board where board_no = ?";
 		Object[] params = {boardNo};
 		List list = jdbcTemplete.query(query, params,new BoardRowMapper());
+		return list;
+	}
+
+	public List boardView1(int boardNo) {
+		String query="SELECT * FROM file_tbl f join board b ON b.board_no = f.board_no and b.board_no=?";
+		Object[] params = {boardNo};
+		List list = jdbcTemplete.query(query, params,new FileRowMapper());
 		return list;
 	}
 }

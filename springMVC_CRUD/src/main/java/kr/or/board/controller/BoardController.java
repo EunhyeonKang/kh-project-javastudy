@@ -99,7 +99,9 @@ public class BoardController {
 	@RequestMapping(value="/boardView.do")
 	public String boardView(int boardNo, Model model) {
 		Board board = service.boardView(boardNo);
+		ArrayList<kr.or.board.model.vo.File> list = service.boardView1(boardNo);
 		model.addAttribute("board",board);
+		model.addAttribute("list",list);
 		return "board/boardView";
 	}
 

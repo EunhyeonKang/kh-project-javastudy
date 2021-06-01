@@ -47,5 +47,10 @@ public class BoardService {
 		return b;
 	}
 
+	public ArrayList<kr.or.board.model.vo.File> boardView1(int boardNo) {
+		List list = dao.boardView1(boardNo);
+		return (ArrayList<kr.or.board.model.vo.File>)list;
+	}
+
 	
 }
