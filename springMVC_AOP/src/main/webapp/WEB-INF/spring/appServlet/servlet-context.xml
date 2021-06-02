@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	<!-- DB접속정보를 저장하는 dataSource객체 생성 -->
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<beans:property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
+		<beans:property name="username" value="mybatis"/>
+		<beans:property name="password" value="1234"></beans:property>
+	</beans:bean>
+	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
+	</beans:bean>
+	<!-- 파일업로드용 bean생성 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/>
+	</beans:bean>
+	<!-- AOP 테스트 -->
+	<!-- 1)before 테스트(try) -->
+	<!-- <beans:bean id="before" class="kr.or.common.BeforeAdvice"/> -->
+	<!-- 2)AfterReturning 테스트(catch) -->
+	<!-- <beans:bean id="after1" class="kr.or.common.AfterReturningAdvice"/> -->
+	<!-- 3)AfterThrowing 테스트 (예외발생)--> 
+	<!-- <beans:bean id="after2" class="kr.or.common.AfterThrowingAdvice"/> -->
+	<!-- 4)Around 테스트 -->
+	<!-- <beans:bean id="around" class="kr.or.common.AroundAdvice"></beans:bean>
+	<aop:config>
+		<aop:pointcut expression="execution(* kr.or.member.model.service..*Service.*(*,..))" id="allPointcut"/>
+		<aop:aspect ref="around">
+			<aop:around method="aroundLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config> -->
+	<!-- AOP 어노테이션 방식 사용 선언 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+	<context:component-scan base-package="kr.or.iei" />
+	<context:component-scan base-package="kr.or.member" />
+	<context:component-scan base-package="kr.or.notice" />
+	<context:component-scan base-package="kr.or.board" />
+	<context:component-scan base-package="kr.or.common" />
+	
+	
+	
+</beans:beans>
