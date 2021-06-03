@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.member.model.dao.MemberDao;
 import kr.or.member.model.vo.Member;
@@ -18,79 +19,45 @@ public class MemberService {
 		System.out.println("MemberService 생성완료");
 	}
 
-	public Member selectOneMember(Member m) {
-		List list = dao.selectOneMember(m);
-		Member member = null;
-		if(!list.isEmpty()) {
-			member = (Member)list.get(0);
-		}
-		return member;
+	public Member selectOneMember(Member m) {	
+		return dao.selectOneMember(m);
 	}
-
+	//자동으로 aop설정
+	@Transactional
 	public int insertMember(Member m) {
-		
+		// TODO Auto-generated method stub
 		return dao.insertMember(m);
 	}
 
 	public Member searchId(Member m) {
-		List list = dao.searchId(m);
-		Member member = null;
-		if(!list.isEmpty()) {
-			member = (Member)list.get(0);
-		}
-		return member;
+		// TODO Auto-generated method stub
+		return dao.searchId(m);
 	}
-
-	public Member searchPw(Member m) {
-		List list = dao.searchPw(m);
-		Member member =null;
-		if(!list.isEmpty()) {
-			member = (Member)list.get(0);
-		}
-		return member;
-	}
-
+	@Transactional
 	public int deleteMember(String memberId) {
-		int result = dao.deleteMember(memberId);
-		return result;
+		// TODO Auto-generated method stub
+		return dao.deleteMember(memberId);
 	}
-
-	public Member selectOneMember(String memberId) {
-		List list = dao.selectOneMember(memberId);
-		Member m=null;
-		if(!list.isEmpty()) {
-			m= (Member)list.get(0);
-		}
-		return m;
-	}
-
+	@Transactional
 	public int memberUpdate(Member m) {
-		int result = dao.updateMember(m);
-		return result;
+		// TODO Auto-generated method stub
+		return dao.memberUpdate(m);
 	}
 
 	public ArrayList<Member> selectAllMember() {
-		List list = dao.selectAllMember();
-		return(ArrayList<Member>)list;
+		// TODO Auto-generated method stub
+		return dao.selectAllMember();
 	}
 
 	public int selectAllMemberCount() {
-		int result = dao.selectAllMemberCount();
-		return result;
+		// TODO Auto-generated method stub
+		return dao.selectAllMemberCount();
 	}
-
-	public Member selectOnePassword(String memberId) {
-		List list = dao.selectOneMember(memberId);
-		Member m=null;
-		if(!list.isEmpty()) {
-			m= (Member)list.get(0);
-		}
-		return m;
-	}
-
+	@Transactional
 	public int pwChangeMember(Member m) {
 		// TODO Auto-generated method stub
 		return dao.pwChangeMember(m);
 	}
+
 	
 }

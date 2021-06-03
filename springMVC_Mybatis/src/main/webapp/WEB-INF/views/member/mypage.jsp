@@ -14,7 +14,6 @@
 		<fieldset>
 			아이디 : <input type="text" name="memberId" value="${member.memberId}" readonly><br>
 			<button type="button" onclick="pwCheck();">비밀번호 변경</button><br>
-			<a href="/updatePasswordFrm.do?memberId=${member.memberId }">비밀번호변경</a><br>
 			이름 : <input type="text" name="memberName" value="${member.memberName }" readonly><br>
 			전화버호 : <input type="text" name="phone" value="${member.phone }"><br>
 			주소 : <input type="text" name="address" value="${member.address }"><br>

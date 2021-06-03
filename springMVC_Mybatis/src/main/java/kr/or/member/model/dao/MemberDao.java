@@ -1,9 +1,11 @@
 package kr.or.member.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.member.model.vo.Member;
@@ -13,79 +15,50 @@ import kr.or.member.model.vo.MemberRowMapper;
 public class MemberDao {
 
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private SqlSessionTemplate sqlSession;
 	public MemberDao() {
 		super();
 		System.out.println("MemberDao 생성완료");
 	}
 
-	public List selectOneMember(Member m) {
-		String query = "select * from member where member_id=? and member_pw=?";
-		Object[] params = {m.getMemberId(),m.getMemberPw()};
-		//조회결과 개수와 상관없이 무조건 list
-		List list = jdbcTemplate.query(query, params, new MemberRowMapper());
-		return list;
+	public Member selectOneMember(Member m) {
+		return sqlSession.selectOne("member.selectOneMember",m);
 	}
-
 	public int insertMember(Member m) {
-		String query = "insert into member values(?,?,?,?,?,?)";
-		Object[] params = {m.getMemberId(),m.getMemberPw(),m.getMemberName(),m.getPhone(),m.getAddress(),m.getGender()};
-		int result = jdbcTemplate.update(query,params);
-		return result;
-	}
+		// TODO Auto-generated method stub
+		return sqlSession.insert("member.insertMember", m);
+	}	
 
-	public List searchId(Member m) {
-		String query="select * from member where member_name=? and phone=?";
-		Object[] params = {m.getMemberName(),m.getPhone()};
-		List list = jdbcTemplate.query(query, params,new MemberRowMapper());
-		return list;
-	}
-
-	public List searchPw(Member m) {
-		String query="select * from member where member_id=? and phone=?";
-		Object[] params = {m.getMemberId(),m.getPhone()};
-		List list = jdbcTemplate.query(query,params,new MemberRowMapper());
-		return list;
+	public Member searchId(Member m) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("member.searchId",m);
 	}
 
 	public int deleteMember(String memberId) {
-		String query = "delete from member where member_id=?";
-		Object[] params = {memberId};
-		int result = jdbcTemplate.update(query,params);
-		return result;
+		// TODO Auto-generated method stub
+		return sqlSession.delete("member.deleteMember",memberId);
 	}
 
-	public List selectOneMember(String memberId) {
-		String query = "select * from member where member_id=?";
-		Object[] params = {memberId};
-		List list = jdbcTemplate.query(query, params, new MemberRowMapper());
-		return list;
+	public int memberUpdate(Member m) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("member.updateMember",m);
 	}
 
-	public int updateMember(Member m) {
-		String query="update member set phone=?,address=?,gender=? where member_id=?";
-		Object[] params = {m.getPhone(),m.getAddress(),m.getGender(),m.getMemberId()};
-		int result = jdbcTemplate.update(query,params);
-		return result;
-	}
-
-	public List selectAllMember() {
-		String query="select * from member";
-		List list= jdbcTemplate.query(query, new MemberRowMapper());
-		return list;
+	public ArrayList<Member> selectAllMember() {
+		// TODO Auto-generated method stub
+		List<Member> list = sqlSession.selectList("member.selectAllMember");
+		return (ArrayList<Member>)list;
 	}
 
 	public int selectAllMemberCount() {
-		String query="select count(*) from member";
-		int result = jdbcTemplate.queryForObject(query,int.class);
-		return result;
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("member.allMemberCount");
 	}
 
 	public int pwChangeMember(Member m) {
-		String query = "update member set member_pw=? where member_id=?";
-		Object[] params = {m.getMemberPw(),m.getMemberId()};
-		int result = jdbcTemplate.update(query,params);
-		return result;
+		// TODO Auto-generated method stub
+		return sqlSession.update("member.pwChangeMember",m);
 	}
+
 	
 }

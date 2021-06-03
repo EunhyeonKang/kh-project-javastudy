@@ -16,21 +16,21 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>${board.boardWriter }</td>
+			<td>${b.boardWriter }</td>
 			<th>작성일</th>
-			<td>${board.boardDate }</td>
+			<td>${b.boardDate }</td>
 		</tr>
 		<tr>
 			<th>첨부파일</th>
 			<td colspan="3">	
-			<c:forEach items="${list }" var="file" varStatus="i">						
-					<a href="/">${file.filename}</a>
+			<c:forEach items="${b.fileList }" var="f">						
+					<a href="/boardFileDown.do?fileNo=${f.fileNo} }">${f.filename}</a>
 			</c:forEach>
 			</td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td colspan="3">${board.boardContent }</td>
+			<td colspan="3">${b.boardContent }</td>
 		</tr>
 	</table>
 </body>

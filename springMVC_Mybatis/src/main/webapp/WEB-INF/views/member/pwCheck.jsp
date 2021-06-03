@@ -31,7 +31,7 @@
 				type : "post",
 				success : function(data){
 					if(data==1){
-						$("form").show());
+						$("form").show();
 					}else{
 						alert("비밀번호를 확인해주세요.");
 					}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="user">
+  <insert id="insertUser" parameterType="u">
+  	insert into user_tbl values(user_seq.nextval,#{email},#{userPw},#{userName},#{age})
+  </insert>
+  <select id="selectOneUser" parameterType="u" resultType="u">
+  select 
+  	user_no as userNo,
+  	email,
+  	user_pw as userPw, 
+  	user_name as userName,
+  	age
+  from user_tbl where email=#{email}
+  
+  </select>
+</mapper>
