@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import kr.or.member.model.service.MemberService;
+import kr.or.member.model.vo.DM;
 import kr.or.member.model.vo.Member;
 
 @Controller
@@ -192,5 +193,19 @@ public class MemberController {
 	 * 
 	 * 
 	 */
+	@RequestMapping(value="/allMemberChat.do")
+	public String allMemberChat() {
+		return "member/allChat";
+	}
+	@RequestMapping(value="/dmList.do")
+	public String dmList() {
+		return "dm/dmList";
+	}
+	@RequestMapping(value="/dmSend.do")
+	public String dmSend(String msg) {
+		System.out.println(msg);
+		DM dm = service.selectDmSend(msg);
+		return "dm/dmList";
+	}
 
 }
