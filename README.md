@@ -9,6 +9,12 @@
 1. 2/11~ 자바 프로그래밍 실습
 2. 3/11~ 데이터베이스 실습
 3. 3/22~ JDBC 실습..
+4. javascript/css/html
+5. servlet/jsp
+6. mybatis
+7. aop
+8. spring
+9. 아두이노
 
 LoL colors
 https://www.webdesignrankings.com/resources/lolcolors/
